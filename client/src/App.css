@@ -1,38 +1,144 @@
-.App {
-  text-align: center;
+/* ------------------ */
+/* CUSTOM PROPERTIES  */
+/* ------------------ */
+:root {
+  /* colors */
+  --clr-dark: 225, 4%, 40%;
+  --clr-white: 0, 0%, 100%;
+  --clr-accent: 152, 74%, 37%;
+
+  /* font-sizes
+  --fs-900: clamp(5rem, calc(8vw + 1rem), 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
+  --fs-500: 1rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+
+  /* font-families */
+  /* --ff-serif: "Bellefair", serif;
+  --ff-sans-cond: "Barlow Condensed", sans-serif;
+  --ff-sans-normal: "Barlow", sans-serif;  */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ------------------ */
+/* RESET              */
+/* ------------------ */
+
+/* Box Sizing */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Reset margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+/* Body Set Up */
+body {
+  /* font-family: hsl(var(--ff-sans-normal)); */
+  /* font-size: hsl(var(--fs-400)); */
+  background-color: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  line-height: 1.5;
   min-height: 100vh;
+  /* overflow-x: hidden; */
+}
+
+/* Images */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Forms */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove animations for people who have turned them off */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01s;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------ */
+/* UTILITY CLASSES    */
+/* ------------------ */
+
+/* General */
+
+.flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: var(--gap, 1rem);
 }
 
-.App-link {
-  color: #61dafb;
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.d-block {
+  display: block;
+}
+
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+/* Colors */
+
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+
+.text-accent {
+  color: hsl(var(--clr-accent));
+}
+
+.text-white {
+  color: hsl(var(--clr-white));
 }
