@@ -1,0 +1,14 @@
+.primary-navigation {
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.primary-navigation li {
+  list-style: none;
+}
+
+.primary-navigation a {
+  color: hsl(var(--clr-dark));
+  text-decoration: none;
+}
