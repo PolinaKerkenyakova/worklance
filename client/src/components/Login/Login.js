@@ -1,14 +1,20 @@
-import Form from '../Form/From';
+import { Link } from 'react-router-dom';
 import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
+
+import { login } from '../../api/data.js';
 
 const Login = () => {
 
-    const inputs = (
-        <>
-            <input type="text" placeholder="Email" name="email" />
-            <input type="text" placeholder="Password" name="password" />
-        </>
-    );
+    const formSubmitHandler = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const email = formData.get('email');
+        const password = formData.get('password');
+
+        await login(email, password);
+    }
 
     return (
         <>
@@ -16,7 +22,24 @@ const Login = () => {
                 <PrimaryNavigation />
             </header>
             <main>
-                <Form title='Sign In to worklance' inputs={inputs} memberText={'Not a member yet?'} sign={'Join now'} />
+                <div className="form-card">
+                    <h1>Sign In to worklance</h1>
+                    <button><span><img src="/images/icon-google.svg" alt="Google icon" /></span>Continue with Google</button>
+                    <p>OR</p>
+                    <form className="flex" method="POST" action="/auth/register" onSubmit={formSubmitHandler}>
+                        <input type="text" placeholder="Email" name="email" />
+                        <input type="text" placeholder="Password" name="password" />
+                        <button>Continue</button>
+                    </form>
+                    <div className="flex">
+                        <label htmlFor="remember">
+                            <input type="checkbox" id="remember" />
+                            Remember Me
+                        </label>
+                        <p><Link to="/">Forgot Password?</Link></p>
+                    </div>
+                    <p>Not a member yet? <Link to="/login">Join now</Link></p>
+                </div>
             </main>
         </>
     )
