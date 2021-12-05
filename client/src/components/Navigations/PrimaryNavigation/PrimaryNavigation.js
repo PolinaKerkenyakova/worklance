@@ -13,6 +13,7 @@ const PrimaryNavigation = () => {
                     <ul className="flex header-nav" /*id="primary-navigation"  className={`primary-navigation underline-indicators flex ${isMenuExpanded ? 'expand-menu' : ''}`}*/>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/offers">Offers</Link></li>
+                        <li><Link to="/create-offer">Create Offer</Link></li>
                         <li><Link to="/login">Login</Link></li>
                         <li><Link to="/register">Join</Link></li>
                         <li><Link to="/logout">Logout</Link></li>
