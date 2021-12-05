@@ -1,4 +1,4 @@
-const storageMiddleware = (req, res, next) => {
+const storageMiddleware = () => (req, res, next) => {
     req.storage = {};
 
     next();
