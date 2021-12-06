@@ -62,9 +62,9 @@ export async function del(url) {
 export async function login(email, password) {
     const response = await post(settings.host + '/auth/login', { email, password });
 
-    // sessionStorage.setItem('authToken', response.accessToken);
-    // sessionStorage.setItem('email', response.email);
-    // sessionStorage.setItem('userId', response._id);
+    sessionStorage.setItem('authToken', response.authToken);
+    sessionStorage.setItem('email', response.email);
+    sessionStorage.setItem('userId', response._id);
 
     return response;
 }
@@ -72,9 +72,9 @@ export async function login(email, password) {
 export async function register(email, password) {
     const response = await post(settings.host + '/auth/register', { email, password });
 
-    // sessionStorage.setItem('authToken', response.accessToken);
-    // sessionStorage.setItem('email', response.email);
-    // sessionStorage.setItem('userId', response._id);
+    sessionStorage.setItem('authToken', response.authToken);
+    sessionStorage.setItem('email', response.email);
+    sessionStorage.setItem('userId', response._id);
 
     return response;
 }
@@ -82,9 +82,9 @@ export async function register(email, password) {
 export async function logout() {
     const response = await get(settings.host + '/auth/logout');
 
-    // sessionStorage.removeItem('authToken');
-    // sessionStorage.removeItem('username');
-    // sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('authToken');
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('userId');
 
     return response;
 }

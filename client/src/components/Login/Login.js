@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
 
 import { login } from '../../api/data.js';
 
 const Login = () => {
+    const navigate = useNavigate();
 
     const formSubmitHandler = async (e) => {
         e.preventDefault();
@@ -14,6 +15,7 @@ const Login = () => {
         const password = formData.get('password');
 
         await login(email, password);
+        navigate('/offers');
     }
 
     return (

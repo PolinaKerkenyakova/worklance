@@ -7,13 +7,23 @@ import { createUser, getUserByEmail } from '../services/user.js';
 const auth = () => (req, res, next) => {
     if (parseToken(req, res)) {
         req.auth = {
-            async register(firstName, lastName, email, password) {
-                const token = await register(firstName, lastName, email, password);
+            async register(email, password) {
+                const {user, token} = await register(email, password);
                 res.cookie(COOKIE_NAME, token);
+                return {
+                    authToken: token,
+                    _id: user._id,
+                    email: user.email,
+                }
             },
             async login(email, password) {
-                const token = await login(email, password);
+                const {user, token} = await login(email, password);
                 res.cookie(COOKIE_NAME, token);
+                return {
+                    authToken: token,
+                    _id: user._id,
+                    email: user.email,
+                }
             },
             logout() {
                 res.clearCookie(COOKIE_NAME);
@@ -24,9 +34,7 @@ const auth = () => (req, res, next) => {
     }
 };
 
-async function register(firstName, lastName, email, password) {
-    // TODO adapt parameters to project requirements
-    // TODO extra validations
+async function register(email, password) {
 
     const existing = await getUserByEmail(email);
 
@@ -36,13 +44,13 @@ async function register(firstName, lastName, email, password) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await createUser(firstName, lastName, email, hashedPassword);
-
-    return generateToken(user);
+    const user = await createUser(email, hashedPassword);
+    const token = generateToken(user);
+    return {user, token}
 }
 
 async function login(email, password) {
-    const user = await getUserByUsername(email);
+    const user = await getUserByEmail(email);
 
     if (!user) {
         const err = new Error('No such user');
@@ -58,7 +66,8 @@ async function login(email, password) {
         throw err;
     }
 
-    return generateToken(user);
+    const token = generateToken(user);
+    return {user, token}
 }
 
 
@@ -66,11 +75,8 @@ function generateToken(userData) {
 
     return jwt.sign({
         _id: userData._id,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
         email: userData.email,
     }, TOKEN_SECRET);
-
 }
 
 function parseToken(req, res) {
@@ -84,8 +90,7 @@ function parseToken(req, res) {
 
         } catch (err) {
             res.clearCookie(COOKIE_NAME);
-            res.redirect('/auth/login');
-
+            // res.redirect('/auth/login');
             return false;
         }
     }
