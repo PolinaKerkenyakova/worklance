@@ -1,5 +1,5 @@
-// import cors from 'cors'; // library
-import cors from '../middlewares/cors.js';
+import cors from 'cors'; // library
+// import cors from '../middlewares/cors.js';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import storageMiddleware from '../middlewares/storage.js';

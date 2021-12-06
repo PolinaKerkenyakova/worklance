@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 
+import { useAuth } from '../../../contexts/AuthContext';
+
 import './PrimaryNavigation.css';
 
 const PrimaryNavigation = () => {
+    const { user } = useAuth();
+
+    console.log(user);
     return (
         <div className="flex primary-navigation container">
             <div className="text-accent">worklance</div>
@@ -13,10 +18,18 @@ const PrimaryNavigation = () => {
                     <ul className="flex header-nav" /*id="primary-navigation"  className={`primary-navigation underline-indicators flex ${isMenuExpanded ? 'expand-menu' : ''}`}*/>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/offers">Offers</Link></li>
-                        <li><Link to="/create-offer">Create Offer</Link></li>
-                        <li><Link to="/login">Login</Link></li>
-                        <li><Link to="/register">Join</Link></li>
-                        <li><Link to="/logout">Logout</Link></li>
+                        {user.isAuthenticated
+                            ?
+                            <>
+                                <li><Link to="/create-offer">Create Offer</Link></li>
+                                <li><Link to="/logout">Logout</Link></li>
+                            </>
+                            :
+                            <>
+                                <li><Link to="/login">Login</Link></li>
+                                <li><Link to="/register">Join</Link></li>
+                            </>
+                        }
                     </ul>
                 </nav>
             </div>

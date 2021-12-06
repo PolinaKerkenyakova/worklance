@@ -1,10 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
+
 import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
 
-import { login } from '../../api/data.js';
+import { login } from '../../api/data';
+import { useAuth } from '../../contexts/AuthContext';
 
 const Login = () => {
     const navigate = useNavigate();
+    const { onLoginHandler } = useAuth();
 
     const formSubmitHandler = async (e) => {
         e.preventDefault();
@@ -15,6 +18,8 @@ const Login = () => {
         const password = formData.get('password');
 
         await login(email, password);
+
+        onLoginHandler();
         navigate('/offers');
     }
 

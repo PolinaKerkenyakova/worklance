@@ -1,10 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom';
+
 import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
 
-import { register } from '../../api/data.js';
+import { register } from '../../api/data';
+
+import { useAuth } from '../../contexts/AuthContext';
 
 const Register = () => {
     const navigate = useNavigate();
+    const { onLoginHandler } = useAuth();
+
 
     const formSubmitHandler = async (e) => {
         e.preventDefault();
@@ -16,7 +21,9 @@ const Register = () => {
         const rePass = formData.get('rePass');
 
         await register(email, password, rePass);
-        navigate('/offers')
+
+        onLoginHandler();
+        navigate('/offers');
     }
 
     return (
