@@ -1,11 +1,18 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const initialState = { name: '', email: '', _id: '' }
-
     const [user, setUser] = useState(initialState);
+
+    useEffect(() => {
+        const name = sessionStorage.getItem('name');
+        const email = sessionStorage.getItem('email');
+        const _id = sessionStorage.getItem('_id');
+
+        setUser({name, email, _id});
+    }, [])
 
     const onLogoutHandler = () => {
         setUser(initialState);

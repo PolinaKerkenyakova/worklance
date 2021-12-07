@@ -1,9 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import { createNewOffer } from '../../api/data';
 import { useAuth } from '../../contexts/AuthContext';
 import PrimaryButton from '../Buttons/PrimaryButton';
 import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
 
 const CreateOffer = () => {
+
+    const navigate = useNavigate();
 
     const { user } = useAuth();
 
@@ -32,6 +35,7 @@ const CreateOffer = () => {
             creator
         });
 
+        navigate('/offers')
 
     }
     return (
