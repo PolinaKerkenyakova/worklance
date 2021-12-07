@@ -1,2 +1,2 @@
 node_modules
-DB_CONNECTION_STRING
+/server/src/config/contants.js
