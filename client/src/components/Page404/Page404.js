@@ -1,16 +1,21 @@
-import { Link } from "react-router-dom"
+import PrimaryLink from '../Buttons/PrimaryLink';
+
+import './Page404.css';
 
 const Page404 = () => {
-
     return (
-        <main className="flex">
+        <main className="flex container error-page">
             <div>
-                <img src="/images/image-404.png" alt="Error"/>
+                <img src="/images/image-404.png" alt="404 error" />
             </div>
-            <div>
-                <p>Oooopsi...</p>
-                <p>Sorry, something went wrong :(</p>
-                <Link to="/">Go Home</Link>
+            <div className="error-text flow">
+                <div>
+                    <p>Ooopss...</p>
+                    <p>Sorry, something went wrong :(</p>
+                </div>
+                <div>
+                    <PrimaryLink link="/">Go Home</PrimaryLink>
+                </div>
             </div>
         </main>
     )
