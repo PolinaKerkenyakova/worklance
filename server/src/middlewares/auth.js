@@ -7,8 +7,8 @@ import { createUser, getUserByEmail } from '../services/user.js';
 const auth = () => (req, res, next) => {
     if (parseToken(req, res)) {
         req.auth = {
-            async register(email, password) {
-                const {user, token} = await register(email, password);
+            async register(name, email, password, profileImage) {
+                const {user, token} = await register(name, email, password, profileImage);
                 res.cookie(COOKIE_NAME, token);
                 return {
                     authToken: token,
@@ -34,7 +34,7 @@ const auth = () => (req, res, next) => {
     }
 };
 
-async function register(email, password) {
+async function register(name, email, password, profileImage) {
 
     const existing = await getUserByEmail(email);
 
@@ -44,7 +44,7 @@ async function register(email, password) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await createUser(email, hashedPassword);
+    const user = await createUser(name, email, hashedPassword, profileImage);
     const token = generateToken(user);
     return {user, token}
 }

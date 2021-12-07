@@ -16,11 +16,13 @@ const Register = () => {
 
         const formData = new FormData(e.target);
 
+        const name = formData.get('name');
         const email = formData.get('email');
         const password = formData.get('password');
         const rePass = formData.get('rePass');
+        const profileImage = formData.get('profileImage');
 
-        await register(email, password, rePass);
+        await register(name, email, password, rePass, profileImage);
 
         onLoginHandler();
         navigate('/offers');
@@ -37,9 +39,11 @@ const Register = () => {
                     <button><span><img src="/images/icon-google.svg" alt="Google icon" /></span>Continue with Google</button>
                     <p>OR</p>
                     <form className="flex" method="POST" action="/auth/register" onSubmit={formSubmitHandler}>
+                        <input type="text" placeholder="Profile Name" name="name"/>
                         <input type="text" placeholder="Email" name="email" />
                         <input type="text" placeholder="Password" name="password" />
                         <input type="text" placeholder="Repeat password" name="rePass" />
+                        <input type="text" placeholder="Profile Image" name="profileImage"/>
                         <button>Continue</button>
                     </form>
                     <div className="flex">
