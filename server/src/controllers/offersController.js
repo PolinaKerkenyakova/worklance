@@ -16,7 +16,6 @@ router.post('/', async (req, res) => {
         creator: req.body.creator
     }
 
-    console.log(offer);
     await createOffer(offer);
 });
 

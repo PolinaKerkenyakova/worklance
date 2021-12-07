@@ -5,7 +5,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 import './PrimaryNavigation.css';
 
 const PrimaryNavigation = () => {
-    const { user } = useAuth();
+    const { isAuthenticated } = useAuth();
 
     return (
         <div className="flex primary-navigation container">
@@ -17,7 +17,7 @@ const PrimaryNavigation = () => {
                     <ul className="flex header-nav" /*id="primary-navigation"  className={`primary-navigation underline-indicators flex ${isMenuExpanded ? 'expand-menu' : ''}`}*/>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/offers">Offers</Link></li>
-                        {user.isAuthenticated
+                        {isAuthenticated
                             ?
                             <>
                                 <li><Link to="/create-offer">Create Offer</Link></li>

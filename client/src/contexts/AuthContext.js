@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const initialState = { isAuthenticated: false, email: '', _id: '' }
+    const initialState = { name: '', email: '', _id: '' }
 
     const [user, setUser] = useState(initialState);
 
@@ -11,12 +11,12 @@ export const AuthProvider = ({ children }) => {
         setUser(initialState);
     }
 
-    const onLoginHandler = () => {
-        setUser({ isAuthenticated: true, _id: user._id, email: user.email });
+    const onLoginHandler = (name, email, _id) => {
+        setUser({ name, email, _id });
     }
 
     return (
-        <AuthContext.Provider value={{ user, onLogoutHandler, onLoginHandler }}>
+        <AuthContext.Provider value={{ user, onLogoutHandler, onLoginHandler, isAuthenticated: Boolean(user.email) }}>
             {children}
         </AuthContext.Provider>
     );

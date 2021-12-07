@@ -22,9 +22,9 @@ const Register = () => {
         const rePass = formData.get('rePass');
         const profileImage = formData.get('profileImage');
 
-        await register(name, email, password, rePass, profileImage);
+        const user = await register(name, email, password, rePass, profileImage);
 
-        onLoginHandler();
+        onLoginHandler(user.name, user.email, user._id);
         navigate('/offers');
     }
 

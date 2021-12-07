@@ -8,6 +8,7 @@ router.post('/register', async (req, res) => {
     res.json({
         _id: response._id,
         email: response.email,
+        name: response.name,
         authToken: response.authToken
     });
 });
@@ -20,6 +21,7 @@ router.post('/login', async (req, res) => {
     res.json({
         _id: response._id,
         email: response.email,
+        name: response.name,
         authToken: response.authToken
     });
 });

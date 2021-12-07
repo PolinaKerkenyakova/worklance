@@ -7,11 +7,8 @@ const CreateOffer = () => {
 
     const { user } = useAuth();
 
-
     const onSubmitHandler = async (e) => {
         e.preventDefault();
-
-        console.log(user);
 
         const data = new FormData(e.target);
 
@@ -22,8 +19,7 @@ const CreateOffer = () => {
         const description = data.get('description');
         const keywords = data.get('keywords');
         const image = data.get('image');
-        const creator = '61adc73b3fd1d73079c892d9';
-        // const creator = user._id;
+        const creator = user._id;
 
         await createNewOffer({
             title,
@@ -35,6 +31,8 @@ const CreateOffer = () => {
             image,
             creator
         });
+
+
     }
     return (
         <>

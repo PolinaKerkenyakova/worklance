@@ -17,9 +17,9 @@ const Login = () => {
         const email = formData.get('email');
         const password = formData.get('password');
 
-        await login(email, password);
+        const user = await login(email, password);
 
-        onLoginHandler();
+        onLoginHandler(user.name, user.email, user._id);
         navigate('/offers');
     }
 

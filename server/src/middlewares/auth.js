@@ -8,21 +8,23 @@ const auth = () => (req, res, next) => {
     if (parseToken(req, res)) {
         req.auth = {
             async register(name, email, password, profileImage) {
-                const {user, token} = await register(name, email, password, profileImage);
+                const { user, token } = await register(name, email, password, profileImage);
                 res.cookie(COOKIE_NAME, token);
                 return {
                     authToken: token,
                     _id: user._id,
                     email: user.email,
+                    name: user.name
                 }
             },
             async login(email, password) {
-                const {user, token} = await login(email, password);
+                const { user, token } = await login(email, password);
                 res.cookie(COOKIE_NAME, token);
                 return {
                     authToken: token,
                     _id: user._id,
                     email: user.email,
+                    name: user.name
                 }
             },
             logout() {
@@ -46,7 +48,7 @@ async function register(name, email, password, profileImage) {
 
     const user = await createUser(name, email, hashedPassword, profileImage);
     const token = generateToken(user);
-    return {user, token}
+    return { user, token }
 }
 
 async function login(email, password) {
@@ -67,7 +69,7 @@ async function login(email, password) {
     }
 
     const token = generateToken(user);
-    return {user, token}
+    return { user, token }
 }
 
 
@@ -76,6 +78,7 @@ function generateToken(userData) {
     return jwt.sign({
         _id: userData._id,
         email: userData.email,
+        name: userData.name
     }, TOKEN_SECRET);
 }
 
