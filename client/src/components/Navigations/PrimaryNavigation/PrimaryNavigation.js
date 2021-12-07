@@ -7,7 +7,6 @@ import './PrimaryNavigation.css';
 const PrimaryNavigation = () => {
     const { user } = useAuth();
 
-    console.log(user);
     return (
         <div className="flex primary-navigation container">
             <div className="text-accent">worklance</div>
@@ -22,6 +21,7 @@ const PrimaryNavigation = () => {
                             ?
                             <>
                                 <li><Link to="/create-offer">Create Offer</Link></li>
+                                <li><Link to="/profile">Profile</Link></li>
                                 <li><Link to="/logout">Logout</Link></li>
                             </>
                             :
