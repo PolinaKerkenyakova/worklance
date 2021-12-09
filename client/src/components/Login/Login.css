@@ -1,0 +1,19 @@
+.page-wrapper {
+  justify-content: center;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 25rem;
+  flex-flow: column wrap;
+}
+
+.login-wrapper {
+  padding: 2rem;
+  flex-flow: column wrap;
+  text-align: center;
+}
+
+.login-form {
+  flex-flow: column wrap;
+}

@@ -70,8 +70,8 @@ export async function login(email, password) {
     return response;
 }
 
-export async function register(name, email, password, profileImage) {
-    const response = await post(settings.host + '/auth/register', { name, email, password, profileImage });
+export async function register(name, email, password, rePass, profileImage) {
+    const response = await post(settings.host + '/auth/register', { name, email, password, rePass, profileImage });
 
     sessionStorage.setItem('authToken', response.authToken);
     sessionStorage.setItem('email', response.email);

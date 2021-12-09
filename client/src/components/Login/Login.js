@@ -4,49 +4,93 @@ import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigatio
 
 import { login } from '../../api/data';
 import { useAuth } from '../../contexts/AuthContext';
+import FormInput from '../UI/FormInput';
+import FormOAuthButton from '../Buttons/FormOAuthButton';
+import WordSeparator from '../FormElements/WordSeparator';
+import PrimaryButton from '../Buttons/PrimaryButton';
+import PasswordActions from '../FormElements/PasswordActions';
+
+import './Login.css';
+import useInput from '../../hooks/useInput';
 
 const Login = () => {
     const navigate = useNavigate();
+
     const { onLoginHandler } = useAuth();
+
+    const {
+        value: enteredEmail,
+        isValid: enteredEmailIsValid,
+        hasError: emailInputHasError,
+        valueChangeHandler: emailChangedHandler,
+        inputBlurHandler: emailBlurHandler,
+        reset: resetEmailInput,
+    } = useInput((value) => value.trim().includes('@'));
+
+    const {
+        value: enteredPassword,
+        isValid: enteredPasswordIsValid,
+        hasError: passwordInputHasError,
+        valueChangeHandler: passwordChangedHandler,
+        inputBlurHandler: passwordBlurHandler,
+        reset: resetPasswordInput,
+    } = useInput((value) => /[A-Za-z0-9]+/.test(value));
+
+    let formIsValid = false;
+
+    if (enteredEmailIsValid && enteredPasswordIsValid) {
+        formIsValid = true;
+    }
 
     const formSubmitHandler = async (e) => {
         e.preventDefault();
+        if (formIsValid) {
+            const user = await login(enteredEmail, enteredPassword);
 
-        const formData = new FormData(e.target);
-
-        const email = formData.get('email');
-        const password = formData.get('password');
-
-        const user = await login(email, password);
-
-        onLoginHandler(user.name, user.email, user._id);
-        navigate('/offers');
+            resetEmailInput();
+            resetPasswordInput();
+            onLoginHandler(user.name, user.email, user._id);
+            navigate('/offers');
+        }
     }
+    const emailInputClasses = emailInputHasError ? 'form-input invalid-input' : 'form-input';
+    const passwordInputClasses = passwordInputHasError ? 'form-input invalid-input' : 'form-input';
 
     return (
         <>
             <header>
                 <PrimaryNavigation />
             </header>
-            <main>
-                <div className="form-card">
-                    <h1>Sign In to worklance</h1>
-                    <button><span><img src="/images/icon-google.svg" alt="Google icon" /></span>Continue with Google</button>
-                    <p>OR</p>
-                    <form className="flex" method="POST" action="/auth/register" onSubmit={formSubmitHandler}>
-                        <input type="text" placeholder="Email" name="email" />
-                        <input type="text" placeholder="Password" name="password" />
-                        <button>Continue</button>
-                    </form>
-                    <div className="flex">
-                        <label htmlFor="remember">
-                            <input type="checkbox" id="remember" />
-                            Remember Me
-                        </label>
-                        <p><Link to="/">Forgot Password?</Link></p>
+            <main className="flex page-wrapper">
+                <div className="login-card">
+                    <div className="login-wrapper flex">
+                        <h1>Sign In to <span className="text-accent ff-accent">worklance</span></h1>
+                        <FormOAuthButton src="/images/icon-google.svg" alt="Google icon">Continue with Google</FormOAuthButton>
+
+                        <WordSeparator>OR</WordSeparator>
+
+                        <form className="login-form flex" method="POST" action="/auth/login" onSubmit={formSubmitHandler}>
+
+                            <FormInput type="text" placeholder="Email" name="email" classes={emailInputClasses} onChange={emailChangedHandler}
+                                onBlur={emailBlurHandler}
+                                value={enteredEmail} />
+                            {emailInputHasError && (
+                                <span className='input-error-text'>Enter a valid email.</span>
+                            )}
+
+                            <FormInput type="password" placeholder="Password" name="password" classes={passwordInputClasses} onChange={passwordChangedHandler}
+                                onBlur={passwordBlurHandler}
+                                value={enteredPassword} />
+                            {passwordInputHasError && <span className='input-error-text'>Password should contain only numbers and letters</span>}
+
+                            <PrimaryButton>Continue</PrimaryButton>
+                        </form>
+
+                        <PasswordActions />
+                        <p>Not a member yet? <Link to="/register" className="text-accent">Join now</Link></p>
                     </div>
-                    <p>Not a member yet? <Link to="/login">Join now</Link></p>
                 </div>
+
             </main>
         </>
     )

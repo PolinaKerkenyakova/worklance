@@ -6,6 +6,7 @@
   --clr-dark: 225, 4%, 40%;
   --clr-white: 0, 0%, 100%;
   --clr-accent: 152, 74%, 37%;
+  --clr-accent-dark: 152, 76%, 32%;
 
   /* font-sizes */
   --fs-900: clamp(5rem, calc(8vw + 1rem), 9.375rem);
@@ -20,6 +21,7 @@
   /* font-families */
   --ff-serif: "Roboto Slab", serif;
   --ff-sans: "Roboto", sans-serif;
+  --ff-accent: "Roboto Mono", monospace;
 }
 
 /* ------------------ */
@@ -70,15 +72,22 @@ body {
   overflow-x: hidden;
 }
 
-main {
-  min-height: 100vh;
-}
-
 /* Images */
 img,
 picture {
   max-width: 100%;
   display: block;
+}
+
+/* Links */
+
+a {
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+a.text-accent:hover {
+  color: hsl(var(--clr-accent-dark));
 }
 
 /* Forms */
@@ -146,8 +155,18 @@ select {
   color: hsl(var(--clr-white));
 }
 
+/* Background */
+
+.bg-accent {
+  background-color: hsl(var(--clr-accent));
+}
+
 /* Fonts */
 
 .ff-serif {
-  font-family: var(--ff-serif)
+  font-family: var(--ff-serif);
+}
+
+.ff-accent {
+  font-family: var(--ff-accent);
 }

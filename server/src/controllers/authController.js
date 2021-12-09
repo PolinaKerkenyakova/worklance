@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post('/register', async (req, res) => {
     const response = await req.auth.register(req.body.name, req.body.email, req.body.password, req.body.profileImage);
+    
     res.status(201);
     res.json({
         _id: response._id,
