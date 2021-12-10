@@ -5,8 +5,8 @@
   /* colors */
   --clr-dark: 225, 4%, 40%;
   --clr-white: 0, 0%, 100%;
-  --clr-accent: 152, 74%, 37%;
-  --clr-accent-dark: 152, 76%, 32%;
+  --clr-accent: 171, 100%, 40%;
+  --clr-accent-dark: 171, 100%, 31%;
 
   /* font-sizes */
   --fs-900: clamp(5rem, calc(8vw + 1rem), 9.375rem);
@@ -139,6 +139,12 @@ select {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem;
+}
+
+.container--small {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 70rem;
 }
 
 /* Colors */
