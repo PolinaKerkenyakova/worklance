@@ -11,4 +11,9 @@
 .primary-navigation a {
   color: hsl(var(--clr-dark));
   text-decoration: none;
+  transition: all.2s;
+}
+
+.primary-navigation a:hover {
+  color: hsl(var(--clr-accent));
 }
