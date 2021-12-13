@@ -7,7 +7,7 @@ import './Home.css';
 
 const Home = () => {
     return (
-        <>
+        <div className="site-wrapper">
             <header className="primary-header">
                 <PrimaryNavigation />
 
@@ -26,7 +26,7 @@ const Home = () => {
                 <SellingPoints />
             </main>
             <Footer />
-        </>
+        </div>
     );
 }
 

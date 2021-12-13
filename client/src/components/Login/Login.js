@@ -12,6 +12,7 @@ import PasswordActions from '../FormElements/PasswordActions';
 
 import './Login.css';
 import useInput from '../../hooks/useInput';
+import Footer from '../Footer/Footer';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -57,7 +58,7 @@ const Login = () => {
     const passwordInputClasses = passwordInputHasError ? 'form-input invalid-input' : 'form-input';
 
     return (
-        <>
+        <div className="site-wrapper">
             <header>
                 <PrimaryNavigation />
             </header>
@@ -92,7 +93,8 @@ const Login = () => {
                 </div>
 
             </main>
-        </>
+            <Footer />
+        </div>
     )
 }
 

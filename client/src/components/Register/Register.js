@@ -11,6 +11,7 @@ import PrimaryButton from '../Buttons/PrimaryButton';
 import WordSeparator from '../FormElements/WordSeparator';
 
 import './Register.css';
+import Footer from '../Footer/Footer';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -100,7 +101,7 @@ const Register = () => {
     rePasswordInputClasses = arePasswordsDifferent ? 'form-input invalid-input' : 'form-input';
 
     return (
-        <>
+        <div className="site-wrapper">
             <header>
                 <PrimaryNavigation />
             </header>
@@ -154,7 +155,8 @@ const Register = () => {
                     </div>
                 </div>
             </main>
-        </>
+            <Footer />
+        </div>
     );
 }
 

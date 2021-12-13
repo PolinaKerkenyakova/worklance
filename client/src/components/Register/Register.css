@@ -9,6 +9,7 @@
 }
 .register-wrapper {
   padding: 2rem;
+  margin: 2rem 0;
   flex-flow: column wrap;
   text-align: center;
 }

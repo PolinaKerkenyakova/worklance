@@ -87,6 +87,17 @@ body {
   overflow-x: hidden;
 }
 
+.site-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer {
+  margin-top: auto;
+}
+
 /* Images */
 img,
 picture {
