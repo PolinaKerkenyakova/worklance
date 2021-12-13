@@ -9,7 +9,7 @@ const PrimaryNavigation = () => {
 
     return (
         <div className="flex primary-navigation container">
-            <div className="text-accent">worklance</div>
+            <Link to="/"><span className="text-accent ff-accent primary-navigation-logo">worklance</span></Link>
 
             <div>
                 {/* <button onClick={showMenuHandler} className="mobile-nav-toggle" aria-controls="primary-navigation"><span className="sr-only" aria-expanded={isMenuExpanded}>Menu</span><img src={isMenuExpanded ? closeMenu : openMenu} alt="" /></button> */}

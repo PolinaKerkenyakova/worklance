@@ -1,5 +1,40 @@
-.primary-header {
-  height: 100vh;
-  background-color: #00431C;
+.hero {
+  background-color: hsl(0, 0%, 93%);
 }
 
+.hero-wrapper {
+  flex-direction: column;
+  background-image: url("./assets/hero-image.jpg");
+  height: 400px;
+  justify-content: center;
+  background-position: top;
+}
+
+.primary-search-form {
+  width: 50%;
+}
+
+.primary-search-form * {
+  display: inline-block;
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+.primary-search-form input {
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  width: 17rem;
+}
+
+.primary-search-form button {
+  color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-accent));
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.primary-search-form button:hover {
+  background-color: hsl(var(--clr-accent-dark));
+}
