@@ -61,6 +61,21 @@ p {
   font-weight: 400;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family: var(--ff-serif);
+}
+
+h2 {
+  margin-bottom: 3rem;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
 /* Body Set Up */
 body {
   font-family: var(--ff-sans);
