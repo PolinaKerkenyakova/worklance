@@ -1,0 +1,103 @@
+.section-popular-services {
+  padding: 6rem 0;
+}
+
+.popular-services {
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.popular-service {
+  list-style: none;
+}
+
+.popular-service h4 {
+  color: hsl(var(--clr-white));
+  padding: 2rem;
+}
+
+.popular-service-wrapper {
+  width: 450px;
+}
+
+.digital-services {
+  background: linear-gradient(
+      hsla(14, 44%, 56%, 0.85),
+      hsla(14, 44%, 56%, 0.85)
+    ),
+    url(../assets/digital-services.jpg);
+}
+
+.construction-services {
+  background: linear-gradient(
+      hsla(14, 44%, 56%, 0.85),
+      hsla(14, 44%, 56%, 0.85)
+    ),
+    url(../assets/repair-and-construction.jpg);
+}
+
+.craftsmen-services {
+  background: linear-gradient(
+      hsla(14, 44%, 56%, 0.85),
+      hsla(14, 44%, 56%, 0.85)
+    ),
+    url(../assets/craftsmen.jpg);
+}
+
+.beauty-services {
+  background: linear-gradient(
+      hsla(14, 44%, 56%, 0.85),
+      hsla(14, 44%, 56%, 0.85)
+    ),
+    url(../assets/beauty.jpg);
+}
+
+.health-services {
+  background: linear-gradient(
+      hsla(14, 44%, 56%, 0.85),
+      hsla(14, 44%, 56%, 0.85)
+    ),
+    url(../assets/health.jpg);
+}
+
+.educational-activities {
+  background: linear-gradient(
+      hsla(14, 44%, 56%, 0.85),
+      hsla(14, 44%, 56%, 0.85)
+    ),
+    url(../assets/educational-and-social-activities.jpg);
+}
+
+.auto-services {
+  background: linear-gradient(
+      hsla(14, 44%, 56%, 0.85),
+      hsla(14, 44%, 56%, 0.85)
+    ),
+    url(../assets/auto-services.jpg);
+}
+
+.professional-services {
+  background: linear-gradient(
+      hsla(14, 44%, 56%, 0.85),
+      hsla(14, 44%, 56%, 0.85)
+    ),
+    url(../assets/professional-services.jpg);
+}
+
+.digital-services,
+.construction-services,
+.craftsmen-services,
+.beauty-services,
+.heath-services,
+.educational-activities,
+.auto-services,
+.professional-services {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.educational-activities,
+.professional-services {
+  background-position: top;
+}
