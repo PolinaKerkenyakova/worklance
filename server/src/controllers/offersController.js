@@ -1,5 +1,5 @@
 import express from 'express';
-import { createOffer, getAllOffers } from '../services/offer.js';
+import { createOffer, getAllOffers, getOfferById } from '../services/offer.js';
 
 const router = express.Router();
 
@@ -25,7 +25,10 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:offerId', async (req, res) => {
-
+    const id = req.params.offerId;
+    console.log();
+    const offer = await getOfferById(id);
+    res.json(offer);
 });
 
 router.put('/:offerId', async (req, res) => {

@@ -8,17 +8,17 @@ export const register = api.register;
 export const logout = api.logout;
 
 // //Implement application specific requests
-// export async function getAllListings() {
-//     return await api.get(host + '/data/cars?sortBy=_createdOn%20desc');
-// }
+export async function getAllOffers() {
+    return await api.get(host + '/offers');
+}
 
-// export async function getListingById(id) {
-//     return await api.get(host + '/data/cars/' + id);
-// }
+export async function getOfferById(id) {
+    return await api.get(`${host}/offers/${id}`);
+}
 
-// export async function createNewListing(item) {
-//     return await api.post(host + '/data/cars', item);
-// }
+export async function createNewOffer(offer) {
+    return await api.post(host + '/offers', offer);
+}
 
 // export async function editListing(id, item) {
 //     return api.put(host + '/data/cars/' + id, item)
