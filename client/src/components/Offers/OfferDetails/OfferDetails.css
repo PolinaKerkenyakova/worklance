@@ -1,0 +1,38 @@
+.offer-details-title {
+  justify-content: space-between;
+}
+
+.offer-details-city {
+    align-items: baseline;
+    --gap: .5rem;
+}
+
+.offer-details-city img {
+  height: 1.2rem;
+}
+
+.offer-details-city p {
+  font-size: 1.8rem;
+}
+
+.offer-details-content {
+    justify-content: space-between;
+}
+
+.offer-details-author-info {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offer-details-author-rating {
+    
+}
+
+
+.offer-details-info {
+    flex-basis: 40%;
+}
+
+.offer-details-images {
+    flex-basis: 55%;
+} 

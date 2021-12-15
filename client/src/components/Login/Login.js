@@ -1,18 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom';
 
-import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
-
+import useInput from '../../hooks/useInput';
 import { login } from '../../api/data';
 import { useAuth } from '../../contexts/AuthContext';
+
+import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
 import FormInput from '../UI/FormInput';
 import FormOAuthButton from '../Buttons/FormOAuthButton';
 import WordSeparator from '../FormElements/WordSeparator';
 import PrimaryButton from '../Buttons/PrimaryButton';
 import PasswordActions from '../FormElements/PasswordActions';
+import Footer from '../Footer/Footer';
+
 
 import './Login.css';
-import useInput from '../../hooks/useInput';
-import Footer from '../Footer/Footer';
 
 const Login = () => {
     const navigate = useNavigate();

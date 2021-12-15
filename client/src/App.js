@@ -12,6 +12,7 @@ import { AuthProvider } from './contexts/AuthContext';
 
 import './App.css';
 import Profile from './components/Profile/Profile';
+import OfferDetails from './components/Offers/OfferDetails/OfferDetails';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/create-offer' element={<CreateOffer />} />
         <Route path='/offers' element={<Offers />} />
+        <Route path='/offers/:id' element={<OfferDetails />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='*' element={<Page404 />} />

@@ -9,9 +9,9 @@ import FormInput from '../UI/FormInput';
 import FormOAuthButton from '../Buttons/FormOAuthButton';
 import PrimaryButton from '../Buttons/PrimaryButton';
 import WordSeparator from '../FormElements/WordSeparator';
+import Footer from '../Footer/Footer';
 
 import './Register.css';
-import Footer from '../Footer/Footer';
 
 const Register = () => {
     const navigate = useNavigate();
