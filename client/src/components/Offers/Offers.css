@@ -1,0 +1,37 @@
+.offers-search-form {
+  justify-content: center;
+  margin: 4rem 0;
+}
+.offers-search-form input {
+  border: 1px solid #e2e2e2;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  width: 28rem;
+  margin-right: 1rem;
+}
+
+.categories-list {
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.categories-item {
+  list-style: none;
+  background-color: hsl(var(--clr-accent), 0.6);
+  border: none;
+}
+
+.offers-wrapper {
+    margin: 5rem 0;
+}
+
+.offers-wrapper h1 {
+   text-align: center;
+   margin-bottom: 3rem;
+}
+
+.offers-section {
+  flex-flow: row wrap;
+  justify-content: space-between;
+  --gap: 2rem;
+}

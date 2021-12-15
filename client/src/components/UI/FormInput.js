@@ -9,7 +9,7 @@ const FormInput = ({
     onBlur,
     value
 }) => {
-    return <input className={classes || 'form-input'} type={type} placeholder={placeholder} name={name} onChange={onChange} onBlur={onBlur} value={value}/>
+    return <input className={classes || 'form-input'} type={type} placeholder={placeholder} name={name} onChange={onChange} onBlur={onBlur} value={value} />
 }
 
 export default FormInput;
