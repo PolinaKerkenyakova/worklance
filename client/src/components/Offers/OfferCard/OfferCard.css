@@ -1,0 +1,85 @@
+.offer-card {
+  max-width: 22rem;
+  border: 1px solid #e2e2e2;
+  border-radius: 0.3rem;
+}
+
+.offer-wrapper {
+  padding: 2rem;
+}
+
+.offer-img {
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.offer-author-info-container {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.offer-author-info {
+  align-items: center;
+}
+
+.offer-author-rating {
+  --gap: .5rem;
+}
+
+.author-profile-img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.add-to-watch-list {
+  position: relative;
+  display: inline-block;
+}
+
+.add-to-watch-list img,
+.star-icon {
+  height: 1.2rem;
+}
+
+.add-to-watch-list .add-to-watch-list-text {
+  visibility: hidden;
+  width: 11.5rem;
+  background-color: hsl(var(--clr-accent));
+  color: hsl(var(--clr-white));;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.add-to-watch-list .add-to-watch-list-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 33%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: hsl(var(--clr-accent)) transparent transparent transparent;
+}
+
+.add-to-watch-list:hover .add-to-watch-list-text {
+  visibility: visible;
+}
+
+
+.offer-info {
+    justify-content: space-between;
+    border-top: 1px solid #e2e2e2;
+    padding-top: .8rem;
+}
+
+.offer-title {
+    color: hsl(var(--clr-dark));
+}
