@@ -7,7 +7,10 @@ export const login = api.login;
 export const register = api.register;
 export const logout = api.logout;
 
-// //Implement application specific requests
+export async function getUserById(id) {
+    return await api.get(`${host}/users/${id}`);
+}
+
 export async function getAllOffers() {
     return await api.get(host + '/offers');
 }

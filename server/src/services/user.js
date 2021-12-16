@@ -18,3 +18,10 @@ export async function getUserByEmail(email) {
 
     return user;
 }
+
+export async function getUserById(id) {
+    const user = await User.findOne({ '_id': id }).lean();
+
+    return user;
+}
+

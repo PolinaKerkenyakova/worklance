@@ -20,7 +20,13 @@ export const getAllOffers = async () => {
 }
 
 export const getOfferById = async (id) => {
-    const offer = await Offer.findById(id);
+    const offer = await Offer.findById(id).lean();
 
     return offer;
+}
+
+export async function getOffersByIds(offersIds) {
+    const offers = await Offer.find({ '_id': { $in: offersIds } }).lean();
+    
+    return offers;
 }
