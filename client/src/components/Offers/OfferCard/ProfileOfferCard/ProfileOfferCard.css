@@ -1,0 +1,24 @@
+.profile-offer-card {
+  border: 1px solid #e2e2e2;
+  border-radius: 0.3rem;
+}
+
+.profile-offer-img-container {
+  max-width: 10rem;
+}
+
+.profile-offer-img-container img {
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.profile-offer-info {
+    width: 100%;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.profile-offer-info button {
+    width: 5rem;
+    margin: 0 .5rem;
+}

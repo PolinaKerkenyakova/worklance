@@ -15,7 +15,6 @@ const Offers = () => {
     useEffect(() => {
         (async () => {
             const offers = await getAllOffers();
-            console.log(offers);
             setOffers(offers);
         })();
     }, [])

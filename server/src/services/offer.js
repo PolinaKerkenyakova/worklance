@@ -26,7 +26,11 @@ export const getOfferById = async (id) => {
 }
 
 export async function getOffersByIds(offersIds) {
-    const offers = await Offer.find({ '_id': { $in: offersIds } }).lean();
-    
+    const offersData = await Offer.find({ '_id': { $in: offersIds } }).lean();
+
+    const offers = offersData.map(o => {
+        return { _id: o._id, title: o.title, image: o.image, category: o.category }
+    });
+
     return offers;
 }
