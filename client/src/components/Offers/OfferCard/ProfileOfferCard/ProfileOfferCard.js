@@ -24,7 +24,7 @@ const ProfileOfferCard = ({
         <div className="profile-offer-card flex">
             <Link to={`/offers/${_id}`}>
                 <div className="profile-offer-img-container">
-                    <img src={image} alt="Offer image" />
+                    <img src={image} alt="Offer cover" />
                 </div>
             </Link>
 

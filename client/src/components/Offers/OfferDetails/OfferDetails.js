@@ -20,9 +20,6 @@ const OfferDetails = () => {
         })();
     }, [id]);
 
-    console.log(offerData);
-
-
     return (
         <div className="site-wrapper">
             <header>
@@ -66,7 +63,7 @@ const OfferDetails = () => {
                     </section>
 
                     <div className="offer-details-images">
-                        <img src={offerData.image} alt="Offer image" />
+                        <img src={offerData.image} alt="Offer cover" />
                     </div>
                 </section>
 

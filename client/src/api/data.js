@@ -23,9 +23,9 @@ export async function createNewOffer(offer) {
     return await api.post(host + '/offers', offer);
 }
 
-// export async function editListing(id, item) {
-//     return api.put(host + '/data/cars/' + id, item)
-// }
+export async function editOffer(id, offer) {
+    return api.put(host + '/offers/' + id, offer)
+}
 
 // export async function delListing(id) {
 //     return await api.del(host + '/data/cars/' + id);

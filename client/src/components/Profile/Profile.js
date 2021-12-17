@@ -28,7 +28,7 @@ const Profile = () => {
             <main className="container--small">
                 <section>
                     <div>
-                        <img src={userInfo.image} alt="User profile photo" />
+                        <img src={userInfo.image} alt="User profile" />
                     </div>
                 </section>
 

@@ -34,3 +34,17 @@ export async function getOffersByIds(offersIds) {
 
     return offers;
 }
+
+export async function updateOffer(id, offerData) {
+    const offer = await Offer.findById(id);
+    offer.title = offerData.title;
+    offer.category = offerData.category;
+    offer.city = offerData.city;
+    offer.price = offerData.price;
+    offer.description = offerData.description;
+    offer.keywords = offerData.keywords;
+    offer.image = offerData.image;
+
+    await offer.save();
+    return offer;
+}

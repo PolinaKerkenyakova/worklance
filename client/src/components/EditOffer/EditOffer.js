@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import { createNewOffer, getOfferById } from '../../api/data';
+import { editOffer, getOfferById } from '../../api/data';
 
 import { useAuth } from '../../contexts/AuthContext';
 import PrimaryButton from '../Buttons/PrimaryButton';
@@ -13,22 +13,24 @@ import TextAreaInput from '../UI/TextAreaInput';
 import './EditOffer.css';
 
 const EditOffer = () => {
-    const [offer, setOffer] = useState({});
-
+    const navigate = useNavigate();
     const { id } = useParams();
 
-    useEffect(() => {
-        (async () => {
-            const offerData = await getOfferById(id);
-            setOffer(offerData);
-        })();
-    }, [id]);
+    const { user } = useAuth();
 
-    console.log(offer);
-
+    const [offer, setOffer] = useState({});
     const [isError, setIsError] = useState(false);
 
-    const { user } = useAuth();
+    useEffect(() => {
+        let isMounted = true;
+
+        (async () => {
+            const offerData = await getOfferById(id);
+            if (isMounted) setOffer(offerData);
+        })();
+
+        return () => isMounted = false;
+    }, [id]);
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
@@ -44,21 +46,21 @@ const EditOffer = () => {
         const image = data.get('image');
 
         if (title.trim() && category.trim() && city.trim() && price.trim() && description.trim() && keywords.trim() && image.trim()) {
-            await createNewOffer({
-                title,
-                category,
-                city,
-                price,
-                description,
-                keywords,
-                image,
-                creator: user._id
-            });
+            await editOffer(id,
+                {
+                    title,
+                    category,
+                    city,
+                    price,
+                    description,
+                    keywords,
+                    image,
+                    creator: user._id
+                });
 
-            console.log('navigate');
             setIsError(false);
 
-            return <Navigate to='/offers' />;
+           navigate(`/offers/${id}`)
         }
 
         setIsError(true);
@@ -74,8 +76,8 @@ const EditOffer = () => {
                     <h1>Edit Offer</h1>
 
                     <form onSubmit={onSubmitHandler} className="flow create-form">
-                        <FormInput type="text" placeholder="Title" name="title" value={offer.title} />
-                        <select name="category" className="offer-category-options" value={offer.category}>
+                        <FormInput type="text" placeholder="Title" name="title" defaultValue={offer.title} />
+                        <select name="category" className="offer-category-options" defaultValue={offer.category}>
                             <option value="Repair and Construction">Repair and Contruction</option>
                             <option value="Digital Services">Digital Services</option>
                             <option value="Craftsmen">Craftsmen</option>
@@ -85,11 +87,11 @@ const EditOffer = () => {
                             <option value="Auto Services">Auto Services</option>
                             <option value="Professional Services">Professional Services</option>
                         </select>
-                        <FormInput type="text" placeholder="City" name="city" value={offer.city} />
-                        <FormInput type="text" placeholder="Price" name="price" value={offer.price} />
+                        <FormInput type="text" placeholder="City" name="city" defaultValue={offer.city} />
+                        <FormInput type="text" placeholder="Price" name="price" defaultValue={offer.price} />
                         <TextAreaInput placeholder="Description..." name="description" defaultValue={offer.description} />
                         <TextAreaInput placeholder="Keywords... (e.g. photographer, logo, marketing)" name="keywords" defaultValue={offer.keywords} />
-                        <FormInput type="text" placeholder="https://" name="image" value={offer.image} />
+                        <FormInput type="text" placeholder="https://" name="image" defaultValue={offer.image} />
                         <PrimaryButton>Save</PrimaryButton>
                         {isError && <p>All fields are required!</p>}
                     </form>
