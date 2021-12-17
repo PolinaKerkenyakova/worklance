@@ -7,13 +7,13 @@ import CreateOffer from './components/CreateOffer/CreateOffer';
 import Offers from './components/Offers/Offers';
 import Logout from './components/Logout/Logout';
 import Page404 from './components/Page404/Page404';
+import Profile from './components/Profile/Profile';
+import OfferDetails from './components/Offers/OfferDetails/OfferDetails';
+import EditOffer from './components/EditOffer/EditOffer';
 
 import { AuthProvider } from './contexts/AuthContext';
 
 import './App.css';
-import Profile from './components/Profile/Profile';
-import OfferDetails from './components/Offers/OfferDetails/OfferDetails';
-
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
         <Route path='/create-offer' element={<CreateOffer />} />
         <Route path='/offers' element={<Offers />} />
         <Route path='/offers/:id' element={<OfferDetails />} />
+        <Route path='/offers/:id/edit' element={<EditOffer />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='*' element={<Page404 />} />
