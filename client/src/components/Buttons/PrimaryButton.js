@@ -1,10 +1,8 @@
 import './PrimaryButton.css';
 
-const PrimaryButton = ({
-    children
-}) => {
+const PrimaryButton = (props) => {
     return (
-        <button className="btn-primary">{children}</button>
+        <button className="btn-primary" {...props}>{props.children}</button>
     )
 }
 
