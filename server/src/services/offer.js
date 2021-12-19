@@ -13,9 +13,42 @@ export const createOffer = async (offerData) => {
     return offer;
 }
 
-export const getAllOffers = async () => {
-    const offers = await Offer.find({});
+export const getAllOffers = async (category) => {
+    let offers;
 
+    switch (category) {
+        case 'See All':
+            offers = await Offer.find({});
+            break;
+        case 'Digital Services':
+            offers = await Offer.find({ 'category': 'Digital Services' });
+            break;
+        case 'Repair and Construction':
+            offers = await Offer.find({ 'category': 'Repair and Construction' });
+            break;
+        case 'Craftsmen':
+            offers = await Offer.find({ 'category': 'Craftsmen' });
+            break;
+        case 'Beauty':
+            offers = await Offer.find({ 'category': 'Beauty' });
+            break;
+        case 'Health':
+            offers = await Offer.find({ 'category': 'Health' });
+            break;
+        case 'Educational and Social Activities':
+            offers = await Offer.find({ 'category': 'Educational and Social Activities' });
+            break;
+        case 'Auto Services':
+            offers = await Offer.find({ 'category': 'Auto Services' });
+            break;
+        case 'Professional Services':
+            offers = await Offer.find({ 'category': 'Professional Services' });
+            break;
+        default:
+            let keyword = new RegExp(category)
+            offers = await Offer.find({ keywords: { $regex : keyword } } );
+
+    }
     return offers;
 }
 
@@ -47,4 +80,8 @@ export async function updateOffer(id, offerData) {
 
     await offer.save();
     return offer;
+}
+
+export async function delOffer(id) {
+    await Offer.findByIdAndDelete(id);
 }

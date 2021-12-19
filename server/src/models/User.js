@@ -5,7 +5,8 @@ const schema = new mongoose.Schema({
     email: { type: String },
     hashedPassword: { type: String },
     profileImage: { type: String },
-    createdOffers: [{type: mongoose.Schema.Types.ObjectId, ref: 'Offer'}]
+    createdOffers: [{type: mongoose.Schema.Types.ObjectId, ref: 'Offer'}],
+    stars: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 });
 
 export default mongoose.model('User', schema);

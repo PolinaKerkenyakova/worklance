@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import './PopularServices.css';
 
 const PopularServices = () => {
+
     return (
         <section className="section-popular-services container">
             <h2>Popular professional services</h2>
 
             <ul className="popular-services flex">
                 <li className="popular-service">
-                    <Link to="/link to this category">
+                    <Link to={`/offers/?search=Digital+Services`}>
                         <div className="popular-service-wrapper">
                             <div className="digital-services">
                                 <h4>Digital Services</h4>
@@ -19,7 +20,7 @@ const PopularServices = () => {
                 </li>
 
                 <li className="popular-service">
-                    <Link to="/link to this category">
+                    <Link to={`/offers/?search=Repair+and+Construction`}>
                         <div className="popular-service-wrapper">
                             <div className="construction-services">
                                 <h4>Repair and Construction</h4>
@@ -29,7 +30,7 @@ const PopularServices = () => {
                 </li>
 
                 <li className="popular-service">
-                    <Link to="/link to this category">
+                    <Link to={`/offers/?search=Craftsmen`}>
                         <div className="popular-service-wrapper">
                             <div className="craftsmen-services">
                                 <h4>Craftsmen</h4>
@@ -39,7 +40,7 @@ const PopularServices = () => {
                 </li>
 
                 <li className="popular-service">
-                    <Link to="/link to this category">
+                    <Link to={`/offers/?search=Beauty`}>
                         <div className="popular-service-wrapper">
                             <div className="beauty-services">
                                 <h4>Beauty</h4>
@@ -49,7 +50,7 @@ const PopularServices = () => {
                 </li>
 
                 <li className="popular-service">
-                    <Link to="/link to this category">
+                    <Link to={`/offers/?search=Health`}>
                         <div className="popular-service-wrapper">
                             <div className="health-services">
                                 <h4>Health</h4>
@@ -59,7 +60,7 @@ const PopularServices = () => {
                 </li>
 
                 <li className="popular-service">
-                    <Link to="/link to this category">
+                    <Link to={`/offers/?search=Educational+and+Social+Activities`}>
                         <div className="popular-service-wrapper">
                             <div className="educational-activities">
                                 <h4>Educational and Social Activities</h4>
@@ -69,7 +70,7 @@ const PopularServices = () => {
                 </li>
 
                 <li className="popular-service">
-                    <Link to="/link to this category">
+                    <Link to={`/offers/?search=Auto+Services`}>
                         <div className="popular-service-wrapper">
                             <div className="auto-services">
                                 <h4>Auto Services</h4>
@@ -79,7 +80,7 @@ const PopularServices = () => {
                 </li>
 
                 <li className="popular-service">
-                    <Link to="/link to this category">
+                    <Link to={`/offers/?search=Professional+Services`}>
                         <div className="popular-service-wrapper">
                             <div className="professional-services">
                                 <h4>Professional Services</h4>

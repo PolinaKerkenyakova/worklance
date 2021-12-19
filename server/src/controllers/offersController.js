@@ -1,5 +1,6 @@
 import express from 'express';
-import { createOffer, getAllOffers, getOfferById, updateOffer } from '../services/offer.js';
+
+import { createOffer, delOffer, getAllOffers, getOfferById, updateOffer } from '../services/offer.js';
 
 const router = express.Router();
 
@@ -18,12 +19,15 @@ router.post('/', async (req, res) => {
 
     if (offer.title && offer.category && offer.city && offer.price && offer.description && offer.keywords && offer.image) {
 
-    await createOffer(offer);
+       const offerCreated =  await createOffer(offer);
+       res.json(offerCreated);
     }
+
 });
 
-router.get('/', async (req, res) => {
-    const offers = await getAllOffers();
+router.get('/search/:category', async (req, res) => {
+    const category = req.params.category;
+    const offers = await getAllOffers(category);
     res.json(offers);
 });
 
@@ -56,6 +60,8 @@ router.put('/:offerId', async (req, res) => {
 
 router.delete('/:offerId', async (req, res) => {
 
+    const id = req.params.offerId;
+    await delOffer(id);
 });
 
 
