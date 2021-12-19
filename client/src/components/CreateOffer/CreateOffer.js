@@ -1,17 +1,20 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { createNewOffer } from '../../api/data';
-
 import { useAuth } from '../../contexts/AuthContext';
+
+import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
 import PrimaryButton from '../Buttons/PrimaryButton';
 import Footer from '../Footer/Footer';
-import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
 import FormInput from '../UI/FormInput';
 import TextAreaInput from '../UI/TextAreaInput';
 
 import './CreateOffer.css';
+
 const CreateOffer = () => {
+
+    const navigate = useNavigate();
 
     const [isError, setIsError] = useState(false);
 
@@ -21,7 +24,6 @@ const CreateOffer = () => {
         e.preventDefault();
 
         const data = new FormData(e.target);
-
         const title = data.get('title');
         const category = data.get('category');
         const city = data.get('city');
@@ -31,7 +33,8 @@ const CreateOffer = () => {
         const image = data.get('image');
 
         if (title.trim() && category.trim() && city.trim() && price.trim() && description.trim() && keywords.trim() && image.trim()) {
-            await createNewOffer({
+
+            const offer = await createNewOffer({
                 title,
                 category,
                 city,
@@ -42,14 +45,14 @@ const CreateOffer = () => {
                 creator: user._id
             });
 
-            console.log('navigate');
             setIsError(false);
 
-            return <Navigate to='/offers' />;
+            navigate(`/offers/${offer._id}`);
         }
 
         setIsError(true);
     }
+
     return (
         <div className="site-wrapper">
             <header>
