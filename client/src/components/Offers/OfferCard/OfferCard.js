@@ -1,28 +1,13 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './OfferCard.css';
 
 const OfferCard = ({
-    category,
-    city,
-    creator,
-    description,
     image,
     price,
     title,
     _id
 }) => {
-    const [creatorData, setCreatorData] = useState({
-        name: '',
-        profileImg: '',
-        rating: ''
-    });
-
-    useEffect(() => {
-
-    }, []);
-
 
     return (
         <div className="offer-card">
@@ -33,7 +18,7 @@ const OfferCard = ({
             </div>
 
             <div className="offer-wrapper flow">
-                <div className="flex offer-author-info-container">
+                {/* <div className="flex offer-author-info-container">
                     <div className="flex offer-author-info">
                         <div>
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR6z_kO944stHlHumtPr3ULtRD8_2fw-di-3bPBky9ACAPATb7QkI4ggkR8ElA5IveM9I&usqp=CAU" alt="" className="author-profile-img" />
@@ -42,9 +27,9 @@ const OfferCard = ({
                     </div>
                     <div className="flex offer-author-rating">
                         <img src="/images/star.svg" alt="Star icon" className="star-icon" />
-                        <p>0.00</p>
+                        <p>Stars</p>
                     </div>
-                </div>
+                </div> */}
 
                 <div>
                     <Link to={`/offers/${_id}`}>
@@ -61,7 +46,7 @@ const OfferCard = ({
                         </div>
                     </Link>
                     <p>
-                        Price: {price}$
+                        Price: $ {price}
                     </p>
                 </div>
             </div>
