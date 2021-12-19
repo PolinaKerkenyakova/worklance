@@ -13,12 +13,22 @@
 }
 
 .profile-offer-info {
-    width: 100%;
-    padding: 1rem;
-    justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  justify-content: space-between;
 }
 
 .profile-offer-info button {
-    width: 5rem;
-    margin: 0 .5rem;
+  width: 5rem;
+  margin: 0 0.5rem;
+}
+
+.modal-buttons {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.modal-buttons button:first-child {
+  margin-right: 1rem;
 }
