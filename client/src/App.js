@@ -24,6 +24,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/create-offer' element={<CreateOffer />} />
         <Route path='/offers' element={<Offers />} />
+        <Route path='/offers/?search=searchText' element={<Offers />} />
         <Route path='/offers/:id' element={<OfferDetails />} />
         <Route path='/offers/:id/edit' element={<EditOffer />} />
         <Route path='/profile' element={<Profile />} />
