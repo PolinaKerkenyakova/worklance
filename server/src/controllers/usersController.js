@@ -10,7 +10,7 @@ router.get('/:userId', async (req, res) => {
     const user = await getUserById(id);
     const offers = await getOffersByIds(user.createdOffers);
 
-    res.json({user, offers});
+    res.json({ user, offers });
 });
 
 

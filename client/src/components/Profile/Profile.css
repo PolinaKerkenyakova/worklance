@@ -1,0 +1,19 @@
+.user-profile {
+  background-color: hsl(var(--clr-accent), 0.2);
+  padding: 2rem;
+  align-items: center;
+}
+
+.user-profile-image {
+    max-width: 10rem;
+    margin-right: 2rem;
+}
+
+.user-profile-image img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-offers {
+    margin: 4rem 0;
+}
