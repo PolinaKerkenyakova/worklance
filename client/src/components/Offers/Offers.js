@@ -30,7 +30,7 @@ const Offers = () => {
             const offersData = await getAllOffers(searchCategory);
             setOffers(offersData);
         })();
-    }, [searchCategory]);
+    }, [location.search, searchCategory]);
 
     const onCategoryChange = (e) => {
         setSearchCategory(e.target.textContent);
