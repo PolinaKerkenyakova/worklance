@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getUserById } from '../../api/data';
+import { getUserProfileData } from '../../api/data';
 import { useAuth } from '../../contexts/AuthContext';
 
 import Footer from '../Footer/Footer';
@@ -19,7 +19,7 @@ const Profile = () => {
 
     useEffect(() => {
         (async () => {
-            const data = await getUserById(user._id);
+            const data = await getUserProfileData(user._id);
             setUserInfo(data.user);
             setUserOffers(data.offers);
         })();

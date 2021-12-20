@@ -11,6 +11,10 @@ export async function getUserById(id) {
     return await api.get(`${host}/users/${id}`);
 }
 
+export async function getUserProfileData(id) {
+    return await api.get(`${host}/users/${id}/profile`);
+}
+
 export async function getAllOffers(category) {
     category = category.split('+').join(' ')
     return await api.get(host + '/offers/search/' + category);
