@@ -31,3 +31,8 @@ export async function editOffer(id, offer) {
 export async function delOffer(id) {
     return await api.del(host + '/offers/' + id);
 }
+
+
+export async function addComment(id, comment) {
+    return await api.post(`${host}/offers/${id}/comments`, comment);
+}

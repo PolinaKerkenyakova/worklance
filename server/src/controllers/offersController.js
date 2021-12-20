@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { createOffer, delOffer, getAllOffers, getOfferById, updateOffer } from '../services/offer.js';
+import { addComment, createOffer, delOffer, getAllOffers, getOfferById, updateOffer } from '../services/offer.js';
 
 const router = express.Router();
 
@@ -19,8 +19,8 @@ router.post('/', async (req, res) => {
 
     if (offer.title && offer.category && offer.city && offer.price && offer.description && offer.keywords && offer.image) {
 
-       const offerCreated =  await createOffer(offer);
-       res.json(offerCreated);
+        const offerCreated = await createOffer(offer);
+        res.json(offerCreated);
     }
 
 });
@@ -62,6 +62,20 @@ router.delete('/:offerId', async (req, res) => {
 
     const id = req.params.offerId;
     await delOffer(id);
+});
+
+router.post('/:offerId/comments', async (req, res) => {
+
+    const id = req.params.offerId;
+    const comment = {
+        commentator: req.body.commentator,
+        comment: req.body.comment,
+        rating: req.body.rating,
+        _id: req.body._id
+    }
+
+    const offer = await addComment(id, comment);
+    return res.json(offer)
 });
 
 

@@ -8,7 +8,8 @@ const schema = new mongoose.Schema({
     description: { type: String },
     keywords: { type: String },
     image: { type: String },
-    creator: {type: mongoose.Types.ObjectId, ref: 'User'}
+    creator: {type: mongoose.Types.ObjectId, ref: 'User'},
+    comments: []
 });
 
 export default mongoose.model('Offer', schema);

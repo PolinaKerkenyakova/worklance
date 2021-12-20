@@ -85,3 +85,12 @@ export async function updateOffer(id, offerData) {
 export async function delOffer(id) {
     await Offer.findByIdAndDelete(id);
 }
+
+export async function addComment(id, comment) {
+    const offer = await Offer.findById(id);
+
+    offer.comments.push(comment);
+    await offer.save();
+
+    return offer;
+}
