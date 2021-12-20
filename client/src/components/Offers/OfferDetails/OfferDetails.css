@@ -3,8 +3,8 @@
 }
 
 .offer-details-city {
-    align-items: baseline;
-    --gap: .5rem;
+  align-items: baseline;
+  --gap: 0.5rem;
 }
 
 .offer-details-city img {
@@ -16,23 +16,48 @@
 }
 
 .offer-details-content {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .offer-details-author-info {
-    justify-content: space-between;
-    align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.offer-details-author-rating {
-    
+.offer-details-author-info div {
+  align-items: center;
 }
-
 
 .offer-details-info {
-    flex-basis: 40%;
+  flex-basis: 40%;
 }
 
 .offer-details-images {
-    flex-basis: 55%;
-} 
+  flex-basis: 55%;
+}
+
+.contacts-modal {
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.contacts-modal > p:first-child {
+  color: hsl(var(--clr-accent));
+  font-size: 1.8rem;
+  font-family: var(--ff-serif);
+}
+
+.offer-comment-form {
+  text-align: center;
+}
+
+.section-comments {
+  margin-top: 4rem;
+  flex-flow: column wrap;
+}
+
+.offer-details-description {
+  font-family: var(--ff-serif);
+  font-size: 1.4rem;
+  padding-top: 2rem;
+}

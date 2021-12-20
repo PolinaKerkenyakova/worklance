@@ -9,8 +9,7 @@ const Comment = ({ comment }) => {
             </div>
             <p>{comment.comment}</p>
         </div>
-    )
-
+    );
 }
 
 export default Comment;
