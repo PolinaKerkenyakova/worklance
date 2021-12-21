@@ -39,7 +39,7 @@ const Offers = () => {
     const onSearchHandler = async (e) => {
         e.preventDefault();
         const search = e.target.search.value.trim();
-        if (/[A-Za-z ]/.test(search)) {
+        if (/[A-Za-z ]*/.test(search)) {
             setSearchCategory(search);
         }
     }

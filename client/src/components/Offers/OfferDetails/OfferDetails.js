@@ -44,7 +44,9 @@ const OfferDetails = () => {
     const onCommentSubmitHandler = async (e) => {
         e.preventDefault();
         const comment = e.target.comment.value;
-        if (user._id) {
+
+        if (user._id && /[A-Za-z ]*/.test(comment)) {
+
             const offer = await addComment(offerData._id, {
                 commentator: user.name,
                 comment,
