@@ -1,9 +1,18 @@
-.create-offer-wrapper {
+.create-form-wrapper {
   max-width: 28rem;
   width: 90%;
   flex-flow: column wrap;
+  margin: 4rem 0;
 }
 
+.create-form-wrapper h1 {
+  align-self: center;
+}
+
+.create-form {
+  flex-flow: column wrap;
+  justify-content: center;
+}
 
 .offer-category-options {
   padding: 0.5rem 1rem;
@@ -14,6 +23,5 @@
 }
 
 .offer-category-options *:hover {
-    background-color: hsl(var(--clr-accent));
+  background-color: hsl(var(--clr-accent));
 }
-

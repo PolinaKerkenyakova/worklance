@@ -17,8 +17,6 @@ const CreateOffer = () => {
 
     const navigate = useNavigate();
 
-    const [isError, setIsError] = useState(false);
-
     const { user } = useAuth();
 
     const onSubmitHandler = async (e) => {
@@ -47,16 +45,14 @@ const CreateOffer = () => {
                     creator: user._id
                 });
 
-                setIsError(false);
-
                 navigate(`/offers/${offer._id}`);
+            } else {
+                (() => toast.error('All input fields are required!'))();
             }
         } catch (err) {
             console.log(err.message);
             (() => toast.error(err.message))();
         }
-
-        setIsError(true);
     }
 
     return (
@@ -66,10 +62,10 @@ const CreateOffer = () => {
             </header>
             <main className="flex page-wrapper">
                 {/* className="create-offer-wrapper flex */}
-                <div className="create-form-wrapper">
+                <div className="create-form-wrapper flex">
                     <h1>Create Offer</h1>
 
-                    <form onSubmit={onSubmitHandler} className="flow create-form">
+                    <form onSubmit={onSubmitHandler} className="flow create-form flex">
                         <FormInput type="text" placeholder="Title" name="title" />
                         <select name="category" className="offer-category-options">
                             <option value="Repair and Construction">Repair and Contruction</option>
@@ -87,7 +83,6 @@ const CreateOffer = () => {
                         <TextAreaInput placeholder="Keywords... (e.g. photographer, logo, marketing)" name="keywords" />
                         <FormInput type="text" placeholder="https://" name="image" />
                         <PrimaryButton>Create</PrimaryButton>
-                        {isError && <p>All fields are required!</p>}
                     </form>
                 </div>
             </main >
