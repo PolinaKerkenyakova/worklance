@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import useInput from '../../hooks/useInput';
 import { login } from '../../api/data';
@@ -11,7 +12,6 @@ import WordSeparator from '../FormElements/WordSeparator';
 import PrimaryButton from '../Buttons/PrimaryButton';
 import PasswordActions from '../FormElements/PasswordActions';
 import Footer from '../Footer/Footer';
-
 
 import './Login.css';
 
@@ -46,15 +46,22 @@ const Login = () => {
 
     const formSubmitHandler = async (e) => {
         e.preventDefault();
-        if (formIsValid) {
-            const user = await login(enteredEmail, enteredPassword);
 
-            resetEmailInput();
-            resetPasswordInput();
-            onLoginHandler(user.name, user.email, user._id);
-            navigate('/offers');
+        try {
+            if (formIsValid) {
+                const user = await login(enteredEmail, enteredPassword);
+
+                resetEmailInput();
+                resetPasswordInput();
+                onLoginHandler(user.name, user.email, user._id);
+                navigate('/offers');
+            }
+        } catch (err) {
+            console.log(err.message);
+            (() => toast.error(err.message))();
         }
     }
+
     const emailInputClasses = emailInputHasError ? 'form-input invalid-input' : 'form-input';
     const passwordInputClasses = passwordInputHasError ? 'form-input invalid-input' : 'form-input';
 

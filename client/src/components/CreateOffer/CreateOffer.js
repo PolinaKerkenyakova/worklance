@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { createNewOffer } from '../../api/data';
 import { useAuth } from '../../contexts/AuthContext';
@@ -32,22 +33,27 @@ const CreateOffer = () => {
         const keywords = data.get('keywords');
         const image = data.get('image');
 
-        if (title.trim() && category.trim() && city.trim() && price.trim() && description.trim() && keywords.trim() && image.trim()) {
+        try {
+            if (title.trim() && category.trim() && city.trim() && price.trim() && description.trim() && keywords.trim() && image.trim()) {
 
-            const offer = await createNewOffer({
-                title,
-                category,
-                city,
-                price,
-                description,
-                keywords,
-                image,
-                creator: user._id
-            });
+                const offer = await createNewOffer({
+                    title,
+                    category,
+                    city,
+                    price,
+                    description,
+                    keywords,
+                    image,
+                    creator: user._id
+                });
 
-            setIsError(false);
+                setIsError(false);
 
-            navigate(`/offers/${offer._id}`);
+                navigate(`/offers/${offer._id}`);
+            }
+        } catch (err) {
+            console.log(err.message);
+            (() => toast.error(err.message))();
         }
 
         setIsError(true);

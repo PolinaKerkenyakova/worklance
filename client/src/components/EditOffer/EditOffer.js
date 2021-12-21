@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { editOffer, getOfferById } from '../../api/data';
 
@@ -45,23 +46,29 @@ const EditOffer = () => {
         const keywords = data.get('keywords');
         const image = data.get('image');
 
-        if (title.trim() && category.trim() && city.trim() && price.trim() && description.trim() && keywords.trim() && image.trim()) {
-            await editOffer(id,
-                {
-                    title,
-                    category,
-                    city,
-                    price,
-                    description,
-                    keywords,
-                    image,
-                    creator: user._id
-                });
+        try {
+            if (title.trim() && category.trim() && city.trim() && price.trim() && description.trim() && keywords.trim() && image.trim()) {
+                await editOffer(id,
+                    {
+                        title,
+                        category,
+                        city,
+                        price,
+                        description,
+                        keywords,
+                        image,
+                        creator: user._id
+                    });
 
-            setIsError(false);
+                setIsError(false);
 
-           navigate(`/offers/${id}`)
+                navigate(`/offers/${id}`)
+            }
+        } catch (err) {
+            console.log(err.message);
+            (() => toast.error(err.message))();
         }
+
 
         setIsError(true);
     }

@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import useInput from '../../hooks/useInput';
 import { register } from '../../api/data';
@@ -72,15 +73,19 @@ const Register = () => {
     const formSubmitHandler = async (e) => {
         e.preventDefault();
 
-        if (formIsValid) {
-            const user = await register(enteredName, enteredEmail, enteredPassword, enteredRePassword, enteredImage);
-            resetNameInput();
-            resetEmailInput();
-            resetPasswordInput();
-            resetRePasswordInput();
-            resetImageInput();
-            onLoginHandler(user.name, user.email, user._id);
-            navigate('/offers');
+        try {
+            if (formIsValid) {
+                const user = await register(enteredName, enteredEmail, enteredPassword, enteredRePassword, enteredImage);
+                resetNameInput();
+                resetEmailInput();
+                resetPasswordInput();
+                resetRePasswordInput();
+                resetImageInput();
+                onLoginHandler(user.name, user.email, user._id);
+                navigate('/offers');
+            }
+        } catch (err) {
+            (() => toast.error(err.message))();
         }
     }
 

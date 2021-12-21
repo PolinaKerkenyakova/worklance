@@ -46,7 +46,7 @@ export const getAllOffers = async (category) => {
             break;
         default:
             let keyword = new RegExp(category)
-            offers = await Offer.find({ keywords: { $regex : keyword } } );
+            offers = await Offer.find({ keywords: { $regex: keyword } });
 
     }
     return offers;
@@ -83,7 +83,9 @@ export async function updateOffer(id, offerData) {
 }
 
 export async function delOffer(id) {
-    await Offer.findByIdAndDelete(id);
+    const response = await Offer.findByIdAndDelete(id);
+
+    return response;
 }
 
 export async function addComment(id, comment) {

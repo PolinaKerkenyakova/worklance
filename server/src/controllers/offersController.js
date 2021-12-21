@@ -17,12 +17,19 @@ router.post('/', async (req, res) => {
         creator: req.body.creator.trim()
     }
 
-    if (offer.title && offer.category && offer.city && offer.price && offer.description && offer.keywords && offer.image) {
+    try {
+        if (offer.title && offer.category && offer.city && offer.price && offer.description && offer.keywords && offer.image) {
 
-        const offerCreated = await createOffer(offer);
-        res.json(offerCreated);
+            const offerCreated = await createOffer(offer);
+            res.json(offerCreated);
+        } else {
+            throw new Error('Invalid inputs!')
+        }
+    } catch (err) {
+        console.log(err.message);
+        res.status(406);
+        res.json({ message: err.message });
     }
-
 });
 
 router.get('/search/:category', async (req, res) => {
@@ -51,11 +58,20 @@ router.put('/:offerId', async (req, res) => {
         creator: req.body.creator.trim()
     }
 
-    if (offerData.title && offerData.category && offerData.city && offerData.price && offerData.description && offerData.keywords && offerData.image) {
+    try {
+        if (offerData.title && offerData.category && offerData.city && offerData.price && offerData.description && offerData.keywords && offerData.image) {
 
-        const offer = await updateOffer(offerId, offerData);
-        res.json(offer);
+            const offer = await updateOffer(offerId, offerData);
+            res.json(offer);
+        } else {
+            throw new Error('Invalid inputs!');
+        }
+    } catch (err) {
+        console.log(err.message);
+        res.status(406);
+        res.json({ message: err.message });
     }
+
 });
 
 router.delete('/:offerId', async (req, res) => {

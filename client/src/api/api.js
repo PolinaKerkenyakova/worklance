@@ -8,7 +8,7 @@ async function request(url, options) {
 
         if (response.ok === false) {
             const error = await response.json();
-            alert(error.message);
+            // (() => toast.error(error.message))();
             throw new Error(error.message);
         }
         try {
@@ -17,10 +17,9 @@ async function request(url, options) {
             return response;
         }
     } catch (error) {
-        alert(error.message);
-        throw new Error(error)
+        // (() => toast.error(error.message))();
+        throw new Error(error);
     }
-
 }
 
 function createOptions(method = 'get', data) {

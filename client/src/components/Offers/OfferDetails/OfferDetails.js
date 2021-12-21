@@ -97,7 +97,7 @@ const OfferDetails = () => {
                         <section className="flex offer-details-author-info">
                             <div className="flex">
                                 <div>
-                                    <img src={creatorData.profileImage} className="author-profile-img" />
+                                    <img src={creatorData.profileImage} className="author-profile-img" alt="Profile"/>
                                 </div>
                                 <p>{creatorData.name}</p>
                             </div>
