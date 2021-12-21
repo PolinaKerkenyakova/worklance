@@ -23,13 +23,13 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/create-offer' element={<CreateOffer />} />
         <Route path='/offers' element={<Offers />} />
         <Route path='/offers/?search=searchText' element={<Offers />} />
         <Route path='/offers/:id' element={<OfferDetails />} />
         <Route path='*' element={<Page404 />} />
 
         <Route element={<GuardedRoute />}>
+          <Route path='/create-offer' element={<CreateOffer />} />
           <Route path='/offers/:id/edit' element={<EditOffer />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/logout' element={<Logout />} />
