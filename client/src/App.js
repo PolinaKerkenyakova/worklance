@@ -1,5 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 
+import { AuthProvider } from './contexts/AuthContext';
+
+import GuardedRoute from './components/common/GuardedRoute';
 import Home from './components/Home/Home';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
@@ -10,8 +13,6 @@ import Page404 from './components/Page404/Page404';
 import Profile from './components/Profile/Profile';
 import OfferDetails from './components/Offers/OfferDetails/OfferDetails';
 import EditOffer from './components/EditOffer/EditOffer';
-
-import { AuthProvider } from './contexts/AuthContext';
 
 import './App.css';
 
@@ -26,10 +27,13 @@ function App() {
         <Route path='/offers' element={<Offers />} />
         <Route path='/offers/?search=searchText' element={<Offers />} />
         <Route path='/offers/:id' element={<OfferDetails />} />
-        <Route path='/offers/:id/edit' element={<EditOffer />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/logout' element={<Logout />} />
         <Route path='*' element={<Page404 />} />
+
+        <Route element={<GuardedRoute />}>
+          <Route path='/offers/:id/edit' element={<EditOffer />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/logout' element={<Logout />} />
+        </Route>
       </Routes>
     </AuthProvider>
   );
