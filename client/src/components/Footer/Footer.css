@@ -10,7 +10,7 @@
 
 .footer-wrapper {
   padding: 4rem 0;
-  justify-content: space-between;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .footer-list {
@@ -18,7 +18,7 @@
   padding-left: 0;
 }
 
-.footer-list:nth-child(3) {
+.footer-list:nth-child(4) {
   align-self: flex-end;
 }
 
@@ -29,4 +29,18 @@
 
 .footer-link img {
   height: 1rem;
+}
+
+@media (max-width: 800px) {
+  .footer-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

@@ -4,7 +4,7 @@ const Footer = () => {
     return (
 
         <footer className="footer">
-            <div className="footer-wrapper flex container">
+            <div className="footer-wrapper grid container">
 
                 <div>
                     <h5 className="ff-accent">worklance</h5>
@@ -27,6 +27,23 @@ const Footer = () => {
                     </ul>
                 </div>
 
+                 <div>
+                    <h5>About</h5>
+                    <ul className="footer-list">
+                        <li className="footer-item">
+                            <a href="/" className="footer-link">Careers</a>
+                        </li>
+                        <li className="footer-item">
+                            <a href="/" className="footer-link">Privacy Policy</a>
+                        </li>
+                        <li className="footer-item">
+                            <a href="/" className="footer-link">Terms of Service</a>
+                        </li>
+                        <li className="footer-item">
+                            <a href="/" className="footer-link">Help and Support</a>
+                        </li>
+                    </ul>
+                </div>
 
                 <div>
                     <h5>Categories</h5>
@@ -61,25 +78,6 @@ const Footer = () => {
                         <a href="/" className="footer-link">Professional Services</a>
                     </li>
                 </ul>
-
-
-                <div>
-                    <h5>About</h5>
-                    <ul className="footer-list">
-                        <li className="footer-item">
-                            <a href="/" className="footer-link">Careers</a>
-                        </li>
-                        <li className="footer-item">
-                            <a href="/" className="footer-link">Privacy Policy</a>
-                        </li>
-                        <li className="footer-item">
-                            <a href="/" className="footer-link">Terms of Service</a>
-                        </li>
-                        <li className="footer-item">
-                            <a href="/" className="footer-link">Help and Support</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </footer>
     );
