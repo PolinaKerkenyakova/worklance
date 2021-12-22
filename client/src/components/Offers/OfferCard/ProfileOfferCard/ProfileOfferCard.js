@@ -56,19 +56,19 @@ const ProfileOfferCard = ({
                 </Modal>
             }
 
-            <div className="profile-offer-card flex">
-                <Link to={`/offers/${_id}`}>
-                    <div className="profile-offer-img-container">
-                        <img src={image} alt="Offer cover" />
-                    </div>
-                </Link>
+            <div className="profile-offer-card">
+                <div>
+                    <Link to={`/offers/${_id}`}>
+                        <img src={image} alt={title} className="profile-offer-img" />
+                    </Link>
+                </div>
 
-                <div className="flex profile-offer-info">
-                    <div>
-                        <Link to={`/offers/${_id}`}><p className="text-accent">{title}</p></Link>
-                        <p>{category}</p>
-                    </div>
-                    <div>
+                <div className="profile-offer-wrapper flow">
+                    <Link to={`/offers/${_id}`}>
+                        <p className="profile-offer-title">{title}</p>
+                    </Link>
+
+                    <div className="flex profile-offer-info">
                         <button className="btn-primary" onClick={onEditHandler}>Edit</button>
                         <button className="btn-primary" onClick={onDeletePreHandler}>Delete</button>
                     </div>

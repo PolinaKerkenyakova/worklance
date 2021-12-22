@@ -42,14 +42,16 @@ const Profile = () => {
                     </div>
                 </section>
 
-                <section className="profile-offers flow">
+                <section className="profile-offers flow flex">
                     <h2>Your Offers</h2>
-                    {userOffers.length > 0
-                        ?
-                        userOffers.map(o => <ProfileOfferCard key={o._id} {...o} />)
-                        :
-                        <p>No created offers, yet! <Link to="/create-offer" className="text-accent">Create</Link></p>
-                    }
+                    <div className="offers-container flex">
+                        {userOffers.length > 0
+                            ?
+                            userOffers.map(o => <ProfileOfferCard key={o._id} {...o} />)
+                            :
+                            <p>No created offers, yet! <Link to="/create-offer" className="text-accent">Create</Link></p>
+                        }
+                    </div>
                 </section>
 
                 {/* <section className="profile-offers flow">

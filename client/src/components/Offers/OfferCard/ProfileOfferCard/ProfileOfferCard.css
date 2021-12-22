@@ -1,34 +1,29 @@
+.modal-buttons {
+    flex-flow: column wrap;
+}
+
 .profile-offer-card {
+  max-width: 22rem;
   border: 1px solid #e2e2e2;
   border-radius: 0.3rem;
 }
 
-.profile-offer-img-container {
-  max-width: 10rem;
+.profile-offer-wrapper {
+  padding: 2rem;
 }
 
-.profile-offer-img-container img {
+.profile-offer-img {
   border-top-left-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
 }
 
 .profile-offer-info {
-  width: 100%;
-  padding: 1rem;
   justify-content: space-between;
+  border-top: 1px solid #e2e2e2;
+  padding-top: 0.8rem;
 }
 
-.profile-offer-info button {
-  width: 5rem;
-  margin: 0 0.5rem;
-}
-
-.modal-buttons {
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-
-.modal-buttons button:first-child {
-  margin-right: 1rem;
+.profile-offer-title {
+  color: hsl(var(--clr-dark));
+  text-align: center;
 }

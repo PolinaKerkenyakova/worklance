@@ -1,3 +1,9 @@
+.offers-container {
+  flex-flow: row wrap;
+  justify-content: space-between;
+  --gap: 2rem;
+}
+
 .user-profile {
   background-color: hsl(var(--clr-accent), 0.2);
   padding: 2rem;
@@ -5,17 +11,25 @@
 }
 
 .user-profile-image {
-    max-width: 10rem;
-    margin-right: 2rem;
+  max-width: 10rem;
+  margin-right: 2rem;
 }
 
 .user-profile-image img {
-    border-radius: 50%;
-    object-fit: cover;
-    height: 10rem;
-    width: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+  height: 10rem;
+  width: 10rem;
 }
 
 .profile-offers {
-    margin: 4rem 0;
+  margin: 4rem 0;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .user-profile {
+    flex-flow: column wrap;
+  }
 }

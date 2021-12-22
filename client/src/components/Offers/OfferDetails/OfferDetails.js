@@ -68,7 +68,7 @@ const OfferDetails = () => {
                 <Modal onCancel={closeContactsHandler}>
                     <div className="contacts-modal flex">
                         <p>Contacts</p>
-                        <div className="flex">
+                        <div className="flex contacts-modal-credentials">
                             <p>{creatorData.name}</p>
                             <p>{creatorData.email}</p>
                         </div>

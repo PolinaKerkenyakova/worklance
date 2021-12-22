@@ -101,3 +101,9 @@
 .professional-services {
   background-position: top;
 }
+
+@media (max-width: 600px) {
+  .popular-service-wrapper {
+    width: 300px;
+  }
+}
