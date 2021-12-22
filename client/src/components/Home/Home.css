@@ -9,11 +9,6 @@
   justify-content: center;
   background-position: top;
 }
-
-.primary-search-form {
-  width: 50%;
-}
-
 .primary-search-form * {
   display: inline-block;
   border: none;
@@ -23,7 +18,7 @@
 .primary-search-form input {
   border-top-left-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
-  width: 17rem;
+  max-width: 17rem;
 }
 
 .primary-search-form button {
@@ -37,4 +32,33 @@
 
 .primary-search-form button:hover {
   background-color: hsl(var(--clr-accent-dark));
+}
+
+@media (max-width: 700px) {
+  .hero-wrapper {
+    background-image: linear-gradient(
+        hsla(14, 44%, 56%, 0.5),
+        hsla(14, 44%, 56%, 0.5)
+      ),
+      url("./assets/hero-image-mobile.jpg");
+  }
+
+  .primary-search-form * {
+    display: block;
+  }
+
+  .primary-search-form input {
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
+
+  .primary-search-form button {
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    margin-top: 0.5rem;
+  }
 }
