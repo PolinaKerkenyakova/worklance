@@ -22,3 +22,46 @@
 .primary-navigation a:hover {
   color: hsl(var(--clr-accent));
 }
+
+.menu-icon-container {
+  cursor: pointer;
+}
+
+.logo-container {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-icon-container {
+  display: none;
+}
+
+.header-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .menu-icon-container {
+    display: block;
+  }
+
+  .primary-navigation {
+    flex-direction: column;
+  }
+
+  .logo-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .expanded {
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+  }
+}
