@@ -2,6 +2,10 @@
     flex-flow: column wrap;
 }
 
+.modal-buttons button:first-child {
+  margin-right: 1rem;
+}
+
 .profile-offer-card {
   max-width: 22rem;
   border: 1px solid #e2e2e2;

@@ -68,7 +68,7 @@ const Offers = () => {
             <main className="container offers-wrapper">
                 <h1>Offers</h1>
 
-                <section className="flex offers-section flow">
+                <section className="flex offers-section">
                     {offers.length > 0
                         ?
                         offers.map(offer => <OfferCard key={offer._id} {...offer} />)
