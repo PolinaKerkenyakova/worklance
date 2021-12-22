@@ -43,7 +43,6 @@ router.post('/login', async (req, res) => {
 router.get('/logout', async (req, res) => {
     await req.auth.logout();
     res.status(200);
-    res.json(response);
 });
 
 export default router;
