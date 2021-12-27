@@ -5,10 +5,10 @@ import { getUserProfileData } from '../../api/data';
 import { useAuth } from '../../contexts/AuthContext';
 
 import Footer from '../Footer/Footer';
-import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
-import ProfileOfferCard from '../Offers/OfferCard/ProfileOfferCard/ProfileOfferCard';
+import PrimaryNavigation from '../PrimaryNavigation/PrimaryNavigation';
+import ProfileOfferCard from '../Profile/ProfileOfferCard/ProfileOfferCard';
 
-import './Profile.css';
+import './Profile.scss';
 
 const Profile = () => {
     const { user } = useAuth();
@@ -26,25 +26,25 @@ const Profile = () => {
     }, [user._id]);
 
     return (
-        <>
+        <div className="site-wrapper">
             <header>
                 <PrimaryNavigation />
             </header>
-            <main className="container--small">
+            <main className="container profile">
 
-                <section className="user-profile flex">
-                    <div className="user-profile-image">
+                <section className="profile__user flex">
+                    <div className="profile__user-img-container">
                         <img src={userInfo.profileImage} alt="User profile" />
                     </div>
-                    <div className="user-profile-info">
+                    <div>
                         <p>{userInfo.name}</p>
                         <p>{userInfo.email}</p>
                     </div>
                 </section>
 
-                <section className="profile-offers flow flex">
+                <section className="profile__offers flow flex">
                     <h2>Your Offers</h2>
-                    <div className="offers-container flex">
+                    <div className="profile__offers-container flex">
                         {userOffers.length > 0
                             ?
                             userOffers.map(o => <ProfileOfferCard key={o._id} {...o} />)
@@ -59,7 +59,7 @@ const Profile = () => {
                 </section> */}
             </main>
             <Footer />
-        </>
+        </div>
     );
 }
 

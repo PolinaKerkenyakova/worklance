@@ -1,0 +1,28 @@
+.create {
+  justify-content: center;
+
+  &__card {
+    width: 100%;
+    max-width: 40rem;
+    flex-flow: column wrap;
+  }
+
+  &__wrapper {
+    padding: 2rem;
+    margin: 2rem 0;
+    flex-flow: column wrap;
+    text-align: center;
+  }
+
+  &__form {
+    flex-flow: column wrap;
+  }
+
+  &__options {
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    border: 1px solid hsl(0, 0%, 73%);
+    width: 100%;
+    color: hsl(var(--clr-dark));
+  }
+}

@@ -5,14 +5,14 @@ import useInput from '../../hooks/useInput';
 import { register } from '../../api/data';
 import { useAuth } from '../../contexts/AuthContext';
 
-import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
-import FormInput from '../UI/FormInput';
+import PrimaryNavigation from '../PrimaryNavigation/PrimaryNavigation';
+import FormInput from '../FormElements/Inputs/FormInput';
 import FormOAuthButton from '../Buttons/FormOAuthButton';
 import PrimaryButton from '../Buttons/PrimaryButton';
 import WordSeparator from '../FormElements/WordSeparator';
 import Footer from '../Footer/Footer';
 
-import './Register.css';
+import './Register.scss';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -110,15 +110,15 @@ const Register = () => {
             <header>
                 <PrimaryNavigation />
             </header>
-            <main className="flex page-wrapper">
-                <div className="register-card">
-                    <div className="register-wrapper flex">
+            <main className="flex register">
+                <div className="register__card">
+                    <div className="register__wrapper flex">
                         <h1>Join <span className="text-accent ff-accent">worklance</span></h1>
                         <FormOAuthButton src="/images/icon-google.svg" alt="Google icon">Continue with Google</FormOAuthButton>
 
                         <WordSeparator>OR</WordSeparator>
 
-                        <form className="register-form flex" method="POST" action="/auth/register" onSubmit={formSubmitHandler}>
+                        <form className="register__form flex" method="POST" action="/auth/register" onSubmit={formSubmitHandler}>
 
                             <FormInput type="text" placeholder="Profile name" name="name" classes={nameInputClasses} onChange={nameChangedHandler}
                                 onBlur={nameBlurHandler}

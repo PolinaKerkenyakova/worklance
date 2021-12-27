@@ -5,15 +5,15 @@ import useInput from '../../hooks/useInput';
 import { login } from '../../api/data';
 import { useAuth } from '../../contexts/AuthContext';
 
-import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
-import FormInput from '../UI/FormInput';
+import PrimaryNavigation from '../PrimaryNavigation/PrimaryNavigation';
+import FormInput from '../FormElements/Inputs/FormInput';
 import FormOAuthButton from '../Buttons/FormOAuthButton';
 import WordSeparator from '../FormElements/WordSeparator';
 import PrimaryButton from '../Buttons/PrimaryButton';
 import PasswordActions from '../FormElements/PasswordActions';
 import Footer from '../Footer/Footer';
 
-import './Login.css';
+import './Login.scss';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -70,15 +70,15 @@ const Login = () => {
             <header>
                 <PrimaryNavigation />
             </header>
-            <main className="flex page-wrapper">
-                <div className="login-card">
-                    <div className="login-wrapper flex">
+            <main className="flex login">
+                <div className="login__card">
+                    <div className="login__wrapper flex">
                         <h1>Sign In to <span className="text-accent ff-accent">worklance</span></h1>
                         <FormOAuthButton src="/images/icon-google.svg" alt="Google icon">Continue with Google</FormOAuthButton>
 
                         <WordSeparator>OR</WordSeparator>
 
-                        <form className="login-form flex" method="POST" action="/auth/login" onSubmit={formSubmitHandler}>
+                        <form className="login__form flex" method="POST" action="/auth/login" onSubmit={formSubmitHandler}>
 
                             <FormInput type="text" placeholder="Email" name="email" classes={emailInputClasses} onChange={emailChangedHandler}
                                 onBlur={emailBlurHandler}

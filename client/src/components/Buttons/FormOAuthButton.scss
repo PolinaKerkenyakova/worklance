@@ -1,0 +1,18 @@
+.oauth-btn {
+  background-color: var(--clr-white);
+  border: 1px solid #bbb;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  width: 100%;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fafafa;
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 1.5rem;
+  }
+}

@@ -1,0 +1,211 @@
+/* ------------------ */
+/* CUSTOM PROPERTIES  */
+/* ------------------ */
+:root {
+  /* colors */
+  --clr-dark: 225, 4%, 40%;
+  --clr-white: 0, 0%, 100%;
+  --clr-accent: 171, 100%, 40%;
+  --clr-accent-dark: 171, 100%, 31%;
+  --clr-orange: 14, 44%, 56%;
+
+  --gradient-orange-light: linear-gradient(
+    hsla(var(--clr-orange), 0.7),
+    hsla(var(--clr-orange), 0.7)
+  );
+
+  --gradient-orange-dark: linear-gradient(
+    hsla(var(--clr-orange), 0.85),
+    hsla(var(--clr-orange), 0.85)
+  );
+
+  /* font-sizes */
+  --fs-900: clamp(4rem, calc(5vw + 1rem), 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
+  --fs-500: 1rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+
+  /* font-families */
+  --ff-serif: "Roboto Slab", serif;
+  --ff-sans: "Roboto", sans-serif;
+  --ff-accent: "Roboto Mono", monospace;
+}
+
+/* ------------------ */
+/* RESET              */
+/* ------------------ */
+
+/* Box Sizing */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-serif);
+}
+
+h2 {
+  margin-bottom: 3rem;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+/* Body Set Up */
+body {
+  font-family: var(--ff-sans);
+  font-size: hsl(var(--fs-400));
+  background-color: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.site-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+/* Images */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Links */
+
+a {
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+a.text-accent:hover {
+  color: hsl(var(--clr-accent-dark));
+}
+
+/* Forms */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove animations for people who have turned them off */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01s;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------ */
+/* UTILITY CLASSES    */
+/* ------------------ */
+
+/* General */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+.container--small {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 70rem;
+}
+
+/* Colors */
+
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+
+.text-accent {
+  color: hsl(var(--clr-accent));
+}
+
+.text-white {
+  color: hsl(var(--clr-white));
+}
+
+/* Background */
+
+.bg-accent {
+  background-color: hsl(var(--clr-accent));
+}
+
+/* Fonts */
+
+.ff-serif {
+  font-family: var(--ff-serif);
+}
+
+.ff-accent {
+  font-family: var(--ff-accent);
+}

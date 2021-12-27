@@ -1,0 +1,22 @@
+.form-input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid hsl(0, 0%, 73%);
+  width: 100%;
+  color: hsl(var(--clr-dark));
+
+  &:focus {
+    outline: 1px solid hsl(0, 0%, 65%);
+  }
+
+  &.invalid-input {
+    border: 1px solid hsl(0, 53%, 57%);
+  }
+}
+
+.input-error-text {
+  text-align: left;
+  font-size: 0.8rem;
+  color: hsl(0, 53%, 57%);
+  margin-top: -0.6rem;
+}

@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 
-import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
+import PrimaryNavigation from '../PrimaryNavigation/PrimaryNavigation';
 import PopularServices from './PopularServices/PopularServices';
 import SellingPoints from './SellingPoints/SellingPoints';
 import Footer from '../Footer/Footer';
 
-import './Home.css';
+import './Home.scss';
 
 const Home = () => {
     let navigate = useNavigate();
@@ -24,9 +24,9 @@ const Home = () => {
                 <PrimaryNavigation />
 
                 <div className="hero">
-                    <div className="hero-wrapper flex container">
+                    <div className="hero__wrapper flex container">
                         <h1 className="text-accent">Find the perfect service for you</h1>
-                        <form className="primary-search-form" onSubmit={onSearchHandler}>
+                        <form className="hero__search-form" onSubmit={onSearchHandler}>
                             <input type="text" placeholder='Try "Photographer"' name="search" />
                             <button>Search</button>
                         </form>

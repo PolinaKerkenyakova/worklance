@@ -1,4 +1,4 @@
-import './PrimaryButton.css';
+import './PrimaryButton.scss';
 
 const PrimaryButton = (props) => {
     return (

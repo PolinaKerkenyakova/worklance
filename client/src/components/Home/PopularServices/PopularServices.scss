@@ -1,0 +1,85 @@
+.popular-services {
+  padding: 6rem 0;
+
+  &__container {
+    flex-flow: row wrap;
+    padding-inline-start: 0;
+    justify-content: space-evenly;
+  }
+
+  &__service {
+    min-width: 31rem;
+    height: 6.25rem;
+    position: relative;
+    list-style: none;
+  }
+
+  &__title {
+    color: hsl(var(--clr-white));
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+  }
+}
+
+.digital-services {
+  background: var(--gradient-orange-dark), url(../assets/digital-services.jpg);
+}
+
+.construction-services {
+  background: var(--gradient-orange-dark),
+    url(../assets/repair-and-construction.jpg);
+}
+
+.craftsmen-services {
+  background: var(--gradient-orange-dark), url(../assets/craftsmen.jpg);
+}
+
+.beauty-services {
+  background: var(--gradient-orange-dark), url(../assets/beauty.jpg);
+}
+
+.health-services {
+  background: var(--gradient-orange-dark), url(../assets/health.jpg);
+}
+
+.educational-activities {
+  background: var(--gradient-orange-dark),
+    url(../assets/educational-and-social-activities.jpg);
+}
+
+.auto-services {
+  background: var(--gradient-orange-dark), url(../assets/auto-services.jpg);
+}
+
+.professional-services {
+  background: var(--gradient-orange-dark),
+    url(../assets/professional-services.jpg);
+}
+
+.digital-services,
+.construction-services,
+.craftsmen-services,
+.beauty-services,
+.health-services,
+.educational-activities,
+.auto-services,
+.professional-services {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.educational-activities,
+.professional-services {
+  background-position: top;
+}
+
+@media (max-width: 31.25em) {
+  .popular-services__service {
+    min-width: 13.75rem;
+    width: 90%;
+  }
+}

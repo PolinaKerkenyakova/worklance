@@ -1,4 +1,4 @@
-import './WordSeparator.css';
+import './WordSeparator.scss';
 
 const WordSeparator = ({
     children

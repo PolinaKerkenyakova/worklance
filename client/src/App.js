@@ -11,10 +11,10 @@ import Offers from './components/Offers/Offers';
 import Logout from './components/Logout/Logout';
 import Page404 from './components/Page404/Page404';
 import Profile from './components/Profile/Profile';
-import OfferDetails from './components/Offers/OfferDetails/OfferDetails';
+import OfferDetails from './components/OfferDetails/OfferDetails';
 import EditOffer from './components/EditOffer/EditOffer';
 
-import './App.css';
+import './App.scss';
 
 import { ToastContainer } from 'react-toastify';
 

@@ -1,0 +1,89 @@
+.contacts-modal {
+  flex-flow: column wrap;
+  align-items: center;
+
+  & > p:first-child {
+    color: hsl(var(--clr-accent));
+    font-size: 1.8rem;
+    font-family: var(--ff-serif);
+  }
+}
+
+.offer-details {
+
+  &__title {
+    justify-content: space-between;
+  }
+
+  &__city-info {
+    align-items: baseline;
+    --gap: 0.5rem;
+  }
+
+  &__map-icon {
+    height: 1.2rem;
+  }
+
+  &__city {
+    font-size: 1.8rem;
+  }
+
+  &__content {
+    justify-content: space-between;
+  }
+
+  &__info {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.offer-details-author-info div {
+  align-items: center;
+}
+
+.offer-details-info {
+  flex-basis: 40%;
+}
+
+.offer-details-images {
+  flex-basis: 55%;
+}
+
+
+
+.offer-comment-form {
+  text-align: center;
+}
+
+.section-comments {
+  margin-top: 4rem;
+  flex-flow: column wrap;
+}
+
+.offer-details-description {
+  font-family: var(--ff-serif);
+  font-size: 1.4rem;
+  padding-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .contacts-modal__credentials {
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+  .offer-details-content {
+    flex-flow: column wrap;
+  }
+
+  .offer-details-images {
+    order: -1;
+  }
+
+  .offer-details-author-info {
+    display: flex;
+    flex-flow: column;
+    align-items: self-start;
+  }
+}

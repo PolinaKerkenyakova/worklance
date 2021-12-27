@@ -1,23 +1,32 @@
+import PrimaryNavigation from '../PrimaryNavigation/PrimaryNavigation';
 import PrimaryLink from '../Buttons/PrimaryLink';
+import Footer from '../Footer/Footer';
 
-import './Page404.css';
+import './Page404.scss';
 
 const Page404 = () => {
     return (
-        <main className="flex container error-page">
-            <div>
-                <img src="/images/image-404.png" alt="404 error" />
-            </div>
-            <div className="error-text flow">
+        <div className="site-wrapper">
+            <header>
+                <PrimaryNavigation />
+            </header>
+            <main className="flex container error-page">
                 <div>
-                    <p>Ooopss...</p>
-                    <p>Sorry, something went wrong :(</p>
+                    <img src="/images/image-404.png" alt="404 error" />
                 </div>
-                <div>
-                    <PrimaryLink link="/">Go Home</PrimaryLink>
+                <div className="error-text flow">
+                    <div>
+                        <p>Ooopss...</p>
+                        <p>Sorry, something went wrong :(</p>
+                    </div>
+                    <div>
+                        <PrimaryLink link="/">Go Home</PrimaryLink>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+            <Footer />
+        </div>
+
     )
 }
 

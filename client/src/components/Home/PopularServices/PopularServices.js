@@ -1,91 +1,70 @@
 import { Link } from 'react-router-dom';
 
-import './PopularServices.css';
+import './PopularServices.scss';
 
 const PopularServices = () => {
 
     return (
-        <section className="section-popular-services container">
+        <section className="popular-services container">
             <h2>Popular professional services</h2>
 
-            <ul className="popular-services flex">
-                <li className="popular-service">
-                    <Link to={`/offers/?search=Digital+Services`}>
-                        <div className="popular-service-wrapper">
-                            <div className="digital-services">
-                                <h4>Digital Services</h4>
-                            </div>
-                        </div>
+            <ul className="popular-services__container flex">
+                <li className="popular-services__service">
+                    <Link to={`/offers/?search=Digital+services`}>
+                        <div className="digital-services"></div>
+                        <h4 className="popular-services__title">Digital Services</h4>
                     </Link>
                 </li>
 
-                <li className="popular-service">
+                <li className="popular-services__service">
                     <Link to={`/offers/?search=Repair+and+Construction`}>
-                        <div className="popular-service-wrapper">
-                            <div className="construction-services">
-                                <h4>Repair and Construction</h4>
-                            </div>
-                        </div>
+                        <div className="construction-services"></div>
+                        <h4 className="popular-services__title">Repair and Construction</h4>
                     </Link>
                 </li>
 
-                <li className="popular-service">
+                <li className="popular-services__service">
                     <Link to={`/offers/?search=Craftsmen`}>
-                        <div className="popular-service-wrapper">
-                            <div className="craftsmen-services">
-                                <h4>Craftsmen</h4>
-                            </div>
-                        </div>
+                        <div className="craftsmen-services"></div>
+                        <h4 className="popular-services__title">Craftsmen</h4>
                     </Link>
                 </li>
 
-                <li className="popular-service">
+                <li className="popular-services__service">
                     <Link to={`/offers/?search=Beauty`}>
-                        <div className="popular-service-wrapper">
-                            <div className="beauty-services">
-                                <h4>Beauty</h4>
-                            </div>
-                        </div>
+                        <div className="beauty-services"></div>
+                        <h4 className="popular-services__title">Beauty</h4>
                     </Link>
                 </li>
 
-                <li className="popular-service">
+                <li className="popular-services__service">
                     <Link to={`/offers/?search=Health`}>
-                        <div className="popular-service-wrapper">
-                            <div className="health-services">
-                                <h4>Health</h4>
-                            </div>
-                        </div>
+                        <div className="health-services"></div>
+                        <h4 className="popular-services__title">Health</h4>
                     </Link>
                 </li>
 
-                <li className="popular-service">
+
+
+                <li className="popular-services__service">
                     <Link to={`/offers/?search=Educational+and+Social+Activities`}>
-                        <div className="popular-service-wrapper">
-                            <div className="educational-activities">
-                                <h4>Educational and Social Activities</h4>
-                            </div>
-                        </div>
+                        <div className="educational-activities"></div>
+                        <h4 className="popular-services__title">Educational and Social Activities</h4>
                     </Link>
                 </li>
 
-                <li className="popular-service">
+
+                <li className="popular-services__service">
                     <Link to={`/offers/?search=Auto+Services`}>
-                        <div className="popular-service-wrapper">
-                            <div className="auto-services">
-                                <h4>Auto Services</h4>
-                            </div>
-                        </div>
+                        <div className="auto-services"></div>
+                        <h4 className="popular-services__title">Auto Services</h4>
                     </Link>
                 </li>
 
-                <li className="popular-service">
+                <li className="popular-services__service">
                     <Link to={`/offers/?search=Professional+Services`}>
-                        <div className="popular-service-wrapper">
-                            <div className="professional-services">
-                                <h4>Professional Services</h4>
-                            </div>
-                        </div>
+                        <div className="professional-services"></div>
+                        <h4 className="popular-services__title">Professional Services</h4>
                     </Link>
                 </li>
             </ul>

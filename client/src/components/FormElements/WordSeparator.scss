@@ -1,0 +1,29 @@
+.word-separator {
+  overflow: hidden;
+  text-align: center;
+
+  & span {
+    position: relative;
+    display: inline-block;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      border-bottom: 1px solid #eee;
+      width: 100vw;
+      margin: 0 20px;
+    }
+
+    &::before {
+      margin-left: -50%;
+      text-align: right;
+      right: 100%;
+    }
+
+    &::after {
+      left: 100%;
+    }
+  }
+}

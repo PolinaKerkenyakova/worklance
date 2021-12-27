@@ -6,7 +6,7 @@ const PrimaryLink = ({
 }) => {
     return (
         <Link to={link} className="text-accent">{children}</Link>
-    )
+    );
 }
 
 export default PrimaryLink;

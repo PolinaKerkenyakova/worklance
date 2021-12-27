@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import './PasswordActions.css';
+import './PasswordActions.scss';
 
 const PasswordActions = () => {
     return (

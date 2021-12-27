@@ -1,0 +1,13 @@
+.btn-primary {
+  color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-accent));
+  border: 1px solid hsl(var(--clr-accent));
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: hsl(var(--clr-accent-dark));
+  }
+}

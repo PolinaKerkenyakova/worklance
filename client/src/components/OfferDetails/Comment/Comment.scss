@@ -1,0 +1,22 @@
+.comment {
+  background-color: hsl(var(--clr-accent), 0.1);
+  border-radius: 0.3rem;
+  padding: 2rem;
+
+  &__info {
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__commentator {
+    font-weight: 600;
+  }
+
+  &__text {
+    padding-top: 1rem;
+  }
+
+  &__star-icon {
+    height: 1.2rem;
+  }
+}

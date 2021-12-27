@@ -1,0 +1,39 @@
+.profile {
+  &__user {
+    background-color: hsl(var(--clr-accent), 0.2);
+    padding: 2rem;
+    align-items: center;
+  }
+
+  &__user-img-container {
+    max-width: 10rem;
+    margin-right: 2rem;
+
+    & img {
+      border-radius: 50%;
+      object-fit: cover;
+      height: 10rem;
+      width: 10rem;
+    }
+  }
+
+  &__offers {
+    margin: 4rem 0;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+  &__offers-container {
+    flex-flow: row wrap;
+    justify-content: center;
+    --gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile {
+    &__user {
+      flex-flow: column wrap;
+    }
+  }
+}

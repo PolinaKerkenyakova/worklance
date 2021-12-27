@@ -5,13 +5,13 @@ import { toast } from 'react-toastify';
 import { createNewOffer } from '../../api/data';
 import { useAuth } from '../../contexts/AuthContext';
 
-import PrimaryNavigation from '../Navigations/PrimaryNavigation/PrimaryNavigation';
+import PrimaryNavigation from '../PrimaryNavigation/PrimaryNavigation';
 import PrimaryButton from '../Buttons/PrimaryButton';
 import Footer from '../Footer/Footer';
-import FormInput from '../UI/FormInput';
-import TextAreaInput from '../UI/TextAreaInput';
+import FormInput from '../FormElements/Inputs/FormInput';
+import TextAreaInput from '../FormElements/Inputs/FormInput';
 
-import './CreateOffer.css';
+import './CreateOffer.scss';
 
 const CreateOffer = () => {
 
@@ -60,30 +60,31 @@ const CreateOffer = () => {
             <header>
                 <PrimaryNavigation />
             </header>
-            <main className="flex page-wrapper">
-                {/* className="create-offer-wrapper flex */}
-                <div className="create-form-wrapper flex">
-                    <h1>Create Offer</h1>
+            <main className="flex create">
+                <div className="create__card">
+                    <div className="create__wrapper flex">
+                        <h1>Create Offer</h1>
 
-                    <form onSubmit={onSubmitHandler} className="flow create-form flex">
-                        <FormInput type="text" placeholder="Title" name="title" />
-                        <select name="category" className="offer-category-options">
-                            <option value="Repair and Construction">Repair and Contruction</option>
-                            <option value="Digital Services">Digital Services</option>
-                            <option value="Craftsmen">Craftsmen</option>
-                            <option value="Beauty">Beauty</option>
-                            <option value="Health">Health</option>
-                            <option value="Educational and Social Activities">Educational and Social Activities</option>
-                            <option value="Auto Services">Auto Services</option>
-                            <option value="Professional Services">Professional Services</option>
-                        </select>
-                        <FormInput type="text" placeholder="City" name="city" />
-                        <FormInput type="text" placeholder="Price" name="price" />
-                        <TextAreaInput placeholder="Description..." name="description" />
-                        <TextAreaInput placeholder="Keywords... (e.g. photographer, logo, marketing)" name="keywords" />
-                        <FormInput type="text" placeholder="https://" name="image" />
-                        <PrimaryButton>Create</PrimaryButton>
-                    </form>
+                        <form onSubmit={onSubmitHandler} className="create__form flex">
+                            <FormInput type="text" placeholder="Title" name="title" />
+                            <select name="category" className="create__options">
+                                <option value="Repair and Construction">Repair and Contruction</option>
+                                <option value="Digital Services">Digital Services</option>
+                                <option value="Craftsmen">Craftsmen</option>
+                                <option value="Beauty">Beauty</option>
+                                <option value="Health">Health</option>
+                                <option value="Educational and Social Activities">Educational and Social Activities</option>
+                                <option value="Auto Services">Auto Services</option>
+                                <option value="Professional Services">Professional Services</option>
+                            </select>
+                            <FormInput type="text" placeholder="City" name="city" />
+                            <FormInput type="text" placeholder="Price" name="price" />
+                            <TextAreaInput placeholder="Description..." name="description" />
+                            <TextAreaInput placeholder="Keywords... (e.g. photographer, logo, marketing)" name="keywords" />
+                            <FormInput type="text" placeholder="https://" name="image" />
+                            <PrimaryButton>Create</PrimaryButton>
+                        </form>
+                    </div>
                 </div>
             </main >
             <Footer />
