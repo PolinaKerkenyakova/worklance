@@ -10,6 +10,10 @@
     "start": "node server",
     "build": "cd client/ && npm install && npm run build"
   },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PolinaKerkenyakova/worklance.git"
