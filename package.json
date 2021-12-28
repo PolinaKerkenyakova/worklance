@@ -1,0 +1,20 @@
+{
+  "name": "worklance",
+  "version": "1.0.0",
+  "description": "Hi, welcome to my MERN project service app.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "build": "cd client/ && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PolinaKerkenyakova/worklance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PolinaKerkenyakova/worklance/issues"
+  },
+  "homepage": "https://github.com/PolinaKerkenyakova/worklance#readme"
+}
