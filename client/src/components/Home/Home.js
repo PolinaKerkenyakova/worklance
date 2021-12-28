@@ -8,13 +8,13 @@ import Footer from '../Footer/Footer';
 import './Home.scss';
 
 const Home = () => {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const onSearchHandler = async (e) => {
         e.preventDefault();
         const search = e.target.search.value.trim();
         if (/[A-Za-z ]*/.test(search)) {
-            navigate(`/offers/?search=${search}`)
+           navigate(`/offers/?search=${search}`);
         }
     }
 

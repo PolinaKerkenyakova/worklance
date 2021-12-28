@@ -16,7 +16,6 @@ export async function getUserProfileData(id) {
 }
 
 export async function getAllOffers(category) {
-    category = category.split('+').join(' ')
     return await api.get(host + '/offers/search/' + category);
 }
 

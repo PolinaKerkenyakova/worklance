@@ -10,7 +10,7 @@ const PopularServices = () => {
 
             <ul className="popular-services__container flex">
                 <li className="popular-services__service">
-                    <Link to={`/offers/?search=Digital+services`}>
+                    <Link to={`/offers/?search=Digital+Services`}>
                         <div className="digital-services"></div>
                         <h4 className="popular-services__title">Digital Services</h4>
                     </Link>
