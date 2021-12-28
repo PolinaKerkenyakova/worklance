@@ -62,6 +62,8 @@ const OfferDetails = () => {
         setRating(rate);
     }
 
+const starRating = (offerData.comments?.reduce((previous, { rating }) => previous + Number(rating), 0)) / offerData.comments?.length || 0;
+
     return (
         <div className="site-wrapper">
             {showHideModal &&
@@ -93,42 +95,40 @@ const OfferDetails = () => {
 
                 <section className="flex offer-details__content">
                     <section className="offer-details__info flow">
-                        <section className="flex offer-details-author-info">
-                            <div className="flex">
+
+                        <div className="offer-details__author flow">
+                            <section className="flex offer-details__author-info">
                                 <div>
-                                    <img src={creatorData.profileImage} className="author-profile-img" alt="Profile" />
+                                    <img src={creatorData.profileImage} className="offer-details__author-img" alt="Profile" />
                                 </div>
                                 <p>{creatorData.name}</p>
-                            </div>
+                            </section>
 
-                            <div className='flex offer-details-author-rating'>
-                                <>
-                                    <p>Stars</p>
-                                    <img src="/images/star.svg" alt="Star icon" className="star-icon" />
-                                    <p>{(offerData.comments?.reduce((previous, { rating }) => previous + Number(rating), 0)) / offerData.comments?.length || '0'} / 5</p>
-                                </>
-                            </div>
-                        </section>
-
-                        <PrimaryButton onClick={ShowHideContactsHandler}>Contacts</PrimaryButton>
+                            <PrimaryButton onClick={ShowHideContactsHandler}>Contacts</PrimaryButton>
+                        </div>
 
                         <section className="flow">
-                            <p className="offer-details-description">Description</p>
+                            <p className="offer-details__description">Description</p>
+                            <div className="flex">
+                                <img src="/images/star.svg" alt="Star icon" className="offer-details__star-icon" />
+                                <p>{starRating === 0 ? 0 : starRating.toFixed(2)} / 5</p>
+                            </div>
                             <p>{offerData.description}</p>
                             <p>Price:<span className="text-accent"> ${offerData.price}</span></p>
                         </section>
                     </section>
 
-                    <div className="offer-details-images">
-                        <img src={offerData.image} alt="Offer cover" />
+                    <div className="offer-details__image-container">
+
+                        <img src={offerData.image} alt="Offer cover" className="offer-details__image" />
                     </div>
                 </section>
 
-                <section className="section-comments flex">
+                <section className="offer-details__comments flex">
                     <h2>Comments</h2>
 
                     {(((user._id !== null) && (user._id !== offerData.creator)) && !offerData.comments?.find(c => c.commentator === user.name)) &&
-                        <div className="offer-comment-form">
+                        <div className="offer-details__comment-form">
                             <form className="flow" onSubmit={onCommentSubmitHandler}>
                                 <TextAreaInput placeholder='Write your comment here...' name="comment"></TextAreaInput>
                                 <label className="text-accent">Rate this offer:</label>
@@ -147,7 +147,6 @@ const OfferDetails = () => {
                         }
                     </section>
                 </section>
-
             </main>
             <Footer />
         </div>
