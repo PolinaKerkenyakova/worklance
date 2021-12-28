@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import { getAllOffers } from '../../api/data';
 
@@ -10,37 +10,36 @@ import OfferCard from './OfferCard/OfferCard';
 import './Offers.scss';
 
 const Offers = () => {
-
-    const [searchCategory, setSearchCategory] = useState('See All');
     const [offers, setOffers] = useState([]);
 
-    const location = useLocation();
-
+    const { search } = useLocation();
+    const searchText = search.split('=')[1].split('+').join(' ');
 
     useEffect(() => {
-
-        // doesn't work every time ?!
-        let searchText = location.search.split('=')[1];
-
-        if (searchText) {
-            setSearchCategory(searchText);
+        if (search) {
+            (async () => {
+                const offersData = await getAllOffers(searchText);
+                setOffers(offersData);
+            })();
         }
 
         (async () => {
-            const offersData = await getAllOffers(searchCategory);
+            const offersData = await getAllOffers(search);
             setOffers(offersData);
         })();
-    }, [location.search, searchCategory]);
+    }, [search, searchText]);
 
-    const onCategoryChange = (e) => {
-        setSearchCategory(e.target.textContent);
+    const onCategoryChange = async (e) => {
+        const offersData = await getAllOffers(e.target.textContent);
+        setOffers(offersData);
     }
 
     const onSearchHandler = async (e) => {
         e.preventDefault();
         const search = e.target.search.value.trim();
         if (/[A-Za-z ]*/.test(search)) {
-            setSearchCategory(search);
+            const offersData = await getAllOffers(search);
+            setOffers(offersData);
         }
     }
 
