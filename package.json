@@ -2,6 +2,9 @@
   "name": "worklance",
   "version": "1.0.0",
   "description": "Hi, welcome to my MERN project service app.",
+  "engines": {
+    "node": "14.17.6"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node server",
