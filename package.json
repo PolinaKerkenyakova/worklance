@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Hi, welcome to my MERN project service app.",
   "engines": {
-    "node": "14.17.6"
+    "node": "14.x"
   },
   "main": "index.js",
   "scripts": {
-    "start": "cd server/ && node ./src/index.js",
-    "build": "cd client/ && npm install && npm run build"
+    "start": "cd server && node ./src/index.js",
+    "build": "cd client && npm install && npm run build"
   },
   "cacheDirectories": [
     "node_modules",
