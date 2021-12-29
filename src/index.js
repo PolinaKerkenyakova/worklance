@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 
 import { PORT } from './config/contants.js';
 import databaseConfig from './config/database.js';
@@ -13,6 +14,14 @@ async function start() {
     await databaseConfig(app);
     expressConfig(app);
     routeConfig(app);
+
+    if (process.env.NODE_EVN === 'production') {
+        app.use(express.static('client/build'));
+
+        app.get('*', (req, res) => {
+            res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+        });
+    }
 
     app.listen(PORT, () => {
         console.log(`App started at http://localhost:${PORT}`);

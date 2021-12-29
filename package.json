@@ -1,27 +1,27 @@
 {
-  "name": "worklance",
+  "name": "server",
   "version": "1.0.0",
-  "description": "Hi, welcome to my MERN project service app.",
-  "engines": {
-    "node": "14.x"
-  },
+  "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "cd server && node ./src/index.js",
-    "build": "cd client && npm install && npm run build"
+    "nodemon": "nodemon ./src/index.js",
+    "start": "node ./src/index.js",
+    "heroku-postbuild": "cd client && npm i && npm run build"
   },
-  "cacheDirectories": [
-    "node_modules",
-    "client/node_modules"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PolinaKerkenyakova/worklance.git"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/PolinaKerkenyakova/worklance/issues"
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.14"
   },
-  "homepage": "https://github.com/PolinaKerkenyakova/worklance#readme"
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
