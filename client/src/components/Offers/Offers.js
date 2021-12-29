@@ -13,21 +13,21 @@ const Offers = () => {
     const [offers, setOffers] = useState([]);
 
     const { search } = useLocation();
-    const searchText = search.split('=')[1].split('+').join(' ');
 
     useEffect(() => {
         if (search) {
             (async () => {
+                const searchText = search.split('=')[1].split('+').join(' ');
                 const offersData = await getAllOffers(searchText);
                 setOffers(offersData);
             })();
+        } else {
+            (async () => {
+                const offersData = await getAllOffers('See All');
+                setOffers(offersData);
+            })();
         }
-
-        (async () => {
-            const offersData = await getAllOffers(search);
-            setOffers(offersData);
-        })();
-    }, [search, searchText]);
+    }, [search]);
 
     const onCategoryChange = async (e) => {
         const offersData = await getAllOffers(e.target.textContent);
